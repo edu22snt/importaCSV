@@ -3,13 +3,13 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>br.gov.ana</groupId>
+    <groupId>br.gov.edu</groupId>
     <artifactId>ImportaCSV</artifactId>
     <version>1.0.0.0</version>
     <packaging>pom</packaging>
 
     <parent>
-        <groupId>br.gov.ana.poms</groupId>
+        <groupId>br.gov.edu.poms</groupId>
         <artifactId>weblogic</artifactId>
         <version>12.1.1.5</version>
     </parent>

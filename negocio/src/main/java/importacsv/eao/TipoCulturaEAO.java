@@ -23,7 +23,7 @@ public class TipoCulturaEAO extends ImportaCsvEAO<TipoCultura, Long> {
             return consultar("tipoCultura.listarTipoCultura");
         } catch(RuntimeException e) {
             log.error(e);
-            throw new EAOException("cadastrosiagas.erro.pesquisar", e);
+            throw new EAOException("cadastrocsv.erro.pesquisar", e);
         }
     }
 }

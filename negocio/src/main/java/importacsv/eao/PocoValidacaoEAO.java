@@ -68,7 +68,7 @@ public class PocoValidacaoEAO extends ImportaCsvEAO<PocoValidacao, Long> {
      * @throws EAOException
      */
     @SuppressWarnings("unchecked")
-    public List<PocoValidacao> pesquisarPocoPeloNumeroSiagas(String argumento, String uf, int situacao, int inicio, int pagina) throws EAOException {
+    public List<PocoValidacao> pesquisarPocoPeloNumeroCsv(String argumento, String uf, int situacao, int inicio, int pagina) throws EAOException {
         try {
             Long ponto = Long.parseLong(argumento);
             inicio--;

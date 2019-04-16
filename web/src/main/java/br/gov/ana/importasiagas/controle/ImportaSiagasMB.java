@@ -24,12 +24,12 @@ import importacsv.entidade.TipoSistemaIrrigacao;
 import importacsv.entidade.TipoSituacaoAto;
 import importacsv.entidade.TipoSituacaoInterferencia;
 import importacsv.service.CorporativoServiceLocal;
-import importacsv.service.ImportaSiagasServiceLocal;
+import importacsv.service.ImportaCsvServiceLocal;
 import importacsv.service.TiposServiceLocal;
 import importacsv.util.LimparCampos;
-import br.gov.ana.wsclient.correios.service.CEP;
-import br.gov.ana.wsclient.ig.municipio.service.Municipio;
-import br.gov.ana.wsclient.ig.uf.service.UF;
+import br.gov.edu.wsclient.correios.service.CEP;
+import br.gov.edu.wsclient.ig.municipio.service.Municipio;
+import br.gov.edu.wsclient.ig.uf.service.UF;
 
 /**
  * @author eduardo.andrade
@@ -38,12 +38,12 @@ import br.gov.ana.wsclient.ig.uf.service.UF;
 @Log4j
 @Named
 @SessionScoped
-public class ImportaSiagasMB extends AbstractUFMB {
+public class ImportaCsvMB extends AbstractUFMB {
 
     private static final long serialVersionUID = -8673479349216367340L;
 
     @Inject
-    private transient ImportaSiagasServiceLocal oes;
+    private transient ImportaCsvServiceLocal oes;
 
     @Inject
     private transient TiposServiceLocal oesTipo;
@@ -52,16 +52,16 @@ public class ImportaSiagasMB extends AbstractUFMB {
     private transient CorporativoServiceLocal corpService;
 
     @Getter @Setter
-    private transient ImportaSiagasList registrosEmAnalise;
+    private transient ImportaCsvList registrosEmAnalise;
 
     @Getter @Setter
-    private transient ImportaSiagasList registrosRetificados;
+    private transient ImportaCsvList registrosRetificados;
 
     @Getter @Setter
-    private transient ImportaSiagasList registrosSincronizados;
+    private transient ImportaCsvList registrosSincronizados;
 
     @Getter @Setter
-    private transient ImportaSiagasList registrosNaoSincronizados;
+    private transient ImportaCsvList registrosNaoSincronizados;
 
     @Getter @Setter
     private PocoValidacao poco;
@@ -101,22 +101,22 @@ public class ImportaSiagasMB extends AbstractUFMB {
     }
 
     public void pesquisarEmAnalise() {
-        registrosEmAnalise = new ImportaSiagasList(oes, parametro, ufArgumento, SituacaoPocoEnum.EM_ANALISE.getOrd());
+        registrosEmAnalise = new ImportaCsvList(oes, parametro, ufArgumento, SituacaoPocoEnum.EM_ANALISE.getOrd());
         registrosEmAnalise.init();
     }
 
     public void pesquisarRetificados() {
-        registrosRetificados = new ImportaSiagasList(oes, parametro, ufArgumento, SituacaoPocoEnum.RETIFICADO.getOrd());
+        registrosRetificados = new ImportaCsvList(oes, parametro, ufArgumento, SituacaoPocoEnum.RETIFICADO.getOrd());
         registrosRetificados.init();
     }
 
     public void pesquisarSincronizados() {
-        registrosSincronizados = new ImportaSiagasList(oes, parametro, ufArgumento, SituacaoPocoEnum.SINCRONIZADO.getOrd());
+        registrosSincronizados = new ImportaCsvList(oes, parametro, ufArgumento, SituacaoPocoEnum.SINCRONIZADO.getOrd());
         registrosSincronizados.init();
     }
 
     public void pesquisarNaoSincronizados() {
-        registrosNaoSincronizados = new ImportaSiagasList(oes, parametro, ufArgumento, SituacaoPocoEnum.NAOSINCRONIZADO.getOrd());
+        registrosNaoSincronizados = new ImportaCsvList(oes, parametro, ufArgumento, SituacaoPocoEnum.NAOSINCRONIZADO.getOrd());
         registrosNaoSincronizados.init();
     }
 
@@ -175,7 +175,7 @@ public class ImportaSiagasMB extends AbstractUFMB {
     }
 
     /**
-     * Método responsável por salvar as informações importadas da planilha siagas.
+     * Método responsável por salvar as informações importadas da planilha csv.
      * @return
      * @throws NegocioException
      * @throws ServicoRemotoException
@@ -185,16 +185,16 @@ public class ImportaSiagasMB extends AbstractUFMB {
             if(poco.getSituacaoRegistro() == 1) {
                 definirUfMunicipioSemCEP();
                 oes.salvarPoco(poco);
-                adicionaMensagemInfo(Mensagens.MSG.get("cadastrosiagas.sucesso.salvar"));
+                adicionaMensagemInfo(Mensagens.MSG.get("cadastrocsv.sucesso.salvar"));
             }
         } else {
-            adicionaMensagemErro(Mensagens.MSG.get("cadastrosiagas.erro.pocoexistente"));
+            adicionaMensagemErro(Mensagens.MSG.get("cadastrocsv.erro.pocoexistente"));
         }
         return init();
     }
 
     /**
-     * Método responsável por salvar as informações importadas da planilha siagas.
+     * Método responsável por salvar as informações importadas da planilha csv.
      * @return
      * @throws NegocioException
      * @throws ServicoRemotoException
@@ -207,7 +207,7 @@ public class ImportaSiagasMB extends AbstractUFMB {
     }
 
     /**
-     * Método responsável por editar as informações importadas da planilha siagas.
+     * Método responsável por editar as informações importadas da planilha csv.
      * @param id
      * @return
      * @throws NegocioException
@@ -222,7 +222,7 @@ public class ImportaSiagasMB extends AbstractUFMB {
         if (poco.getCpfCnpj() != null) {
             pesquisarCPFCNPJ();
         }
-        return "/restrito/telas/dados_siagas.jsf";
+        return "/restrito/telas/dados_csv.jsf";
     }
 
     /**
@@ -233,11 +233,11 @@ public class ImportaSiagasMB extends AbstractUFMB {
     public void excluir(PocoValidacao poco) throws NegocioException {
         oes.excluirPoco(poco);
         init();
-        adicionaMensagemInfo(Mensagens.MSG.get("cadastrosiagas.sucesso.excluir"));
+        adicionaMensagemInfo(Mensagens.MSG.get("cadastrocsv.sucesso.excluir"));
     }
 
     /**
-     * Método responsável por visualizar as informações importadas da planilha siagas.
+     * Método responsável por visualizar as informações importadas da planilha csv.
      * @param id
      * @return
      * @throws NegocioException
@@ -254,7 +254,7 @@ public class ImportaSiagasMB extends AbstractUFMB {
         if (poco.getCpfCnpj() != null) {
             pesquisarCPFCNPJ();
         }
-        return "/restrito/telas/dados_siagas.jsf";
+        return "/restrito/telas/dados_csv.jsf";
     }
 
     public void limparPesquisaEmAnalise() throws NegocioException {
@@ -401,7 +401,7 @@ public class ImportaSiagasMB extends AbstractUFMB {
 
         } catch (NegocioException e) {
             log.error(e.getMessage(), e);
-            adicionaMensagemErro(Mensagens.MSG.get("cadastrosiagas.erro.problemapesquisacpfcnpj"));
+            adicionaMensagemErro(Mensagens.MSG.get("cadastrocsv.erro.problemapesquisacpfcnpj"));
         }
         return poco;
     }
@@ -453,7 +453,7 @@ public class ImportaSiagasMB extends AbstractUFMB {
             ultimoID = oes.recuperarMaxIDProprietario();
         } catch (NegocioException e) {
             log.error(e);
-            adicionaMensagemErro(Mensagens.MSG.get("cadastrosiagas.erro.recuperarmaxid"));
+            adicionaMensagemErro(Mensagens.MSG.get("cadastrocsv.erro.recuperarmaxid"));
         }
         return ultimoID;
     }

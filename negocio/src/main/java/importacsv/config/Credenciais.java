@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 import br.com.edu.framework.permissoes.PermissoesCache;
-import br.gov.ana.wsclient.ig.uf.service.UF;
+import br.gov.edu.wsclient.ig.uf.service.UF;
 import importacsv.permissoes.Permissoes;
 
 @Log4j

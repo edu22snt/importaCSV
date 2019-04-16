@@ -17,12 +17,12 @@ import br.com.edu.framework.excecao.EAOException;
 import br.com.edu.framework.excecao.NegocioException;
 import br.com.edu.framework.excecao.ServicoRemotoException;
 import importacsv.entidade.PocoValidacao;
-import br.gov.ana.wsclient.ig.uf.service.UF;
-import br.gov.ana.wsclient.snirh.administracao.Atividade;
-import br.gov.ana.wsclient.snirh.administracao.Autorizacao;
-import br.gov.ana.wsclient.snirh.administracao.Modulo;
-import br.gov.ana.wsclient.snirh.administracao.Restricao;
-import br.gov.ana.wsclient.snirh.administracao.Usuario;
+import br.gov.edu.wsclient.ig.uf.service.UF;
+import br.gov.edu.wsclient.snirh.administracao.Atividade;
+import br.gov.edu.wsclient.snirh.administracao.Autorizacao;
+import br.gov.edu.wsclient.snirh.administracao.Modulo;
+import br.gov.edu.wsclient.snirh.administracao.Restricao;
+import br.gov.edu.wsclient.snirh.administracao.Usuario;
 import importacsv.config.Credenciais;
 import importacsv.eao.PocoValidacaoEAO;
 import importacsv.util.VerificaParametro;
@@ -34,7 +34,7 @@ import importacsv.util.VerificaParametro;
 @Log4j
 @Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)
-public class ImportaSiagasServiceBean implements ImportaSiagasServiceLocal {
+public class ImportaCsvServiceBean implements ImportaCsvServiceLocal {
 
     @Inject
     private Credenciais credenciais;
@@ -52,8 +52,8 @@ public class ImportaSiagasServiceBean implements ImportaSiagasServiceLocal {
             uf = ufEstadual;
         }
         if(!VerificaParametro.ehNulo(parametro)) {
-            if (VerificaParametro.ehNumeroSiagas(parametro)) {
-                return pesquisarPocoPeloNumeroSiagas(parametro, uf, situacao, inicio, pagina);
+            if (VerificaParametro.ehNumeroCsv(parametro)) {
+                return pesquisarPocoPeloNumeroCsv(parametro, uf, situacao, inicio, pagina);
             } else if(VerificaParametro.ehCpfCnpj(parametro)) {
                 return pesquisarPocoPeloCpfCnpj(parametro, uf, situacao, inicio, pagina);
             } else {
@@ -65,8 +65,7 @@ public class ImportaSiagasServiceBean implements ImportaSiagasServiceLocal {
     }
 
     /**
-     * método responsável por pesquisar o poço pelo numero siagas.
-     * @param parametro
+     * método responsável por pesquisar o poço pelo numero siacsv     * @param parametro
      * @param uf
      * @param situacao
      * @param inicio
@@ -74,12 +73,12 @@ public class ImportaSiagasServiceBean implements ImportaSiagasServiceLocal {
      * @return
      * @throws NegocioException
      */
-    private List<PocoValidacao> pesquisarPocoPeloNumeroSiagas(String parametro, String uf, int situacao, int inicio, int pagina) throws NegocioException {
+    private List<PocoValidacao> pesquisarPocoPeloNumeroSiaCsvring parametro, String uf, int situacao, int inicio, int pagina) throws NegocioException {
         try {
-            return cadastroEAO.pesquisarPocoPeloNumeroSiagas(parametro, uf, situacao, inicio, pagina);
+            return cadastroEAO.pesquisarPocoPeloNumeroSiaCsvrametro, uf, situacao, inicio, pagina);
         } catch (EAOException e) {
             log.error(e);
-            throw new NegocioException("cadastrosiagas.erro.pesquisapeloponto", e);
+            throw new NegocioException("cadastrosiacsvro.pesquisapeloponto", e);
         }
     }
 
@@ -98,7 +97,7 @@ public class ImportaSiagasServiceBean implements ImportaSiagasServiceLocal {
             return cadastroEAO.pesquisarPocoPeloCpfCnpj(parametro, uf, situacao, inicio, pagina);
         } catch (EAOException e) {
             log.error(e);
-            throw new NegocioException("cadastrosiagas.erro.pesquisapelocpfcnpj", e);
+            throw new NegocioException("cadastrosiagascsvpesquisapelocpfcnpj", e);
         }
     }
 
@@ -117,7 +116,7 @@ public class ImportaSiagasServiceBean implements ImportaSiagasServiceLocal {
             return cadastroEAO.pesquisarPocoPeloArgumento(parametro, uf, situacao, inicio, pagina);
         } catch (EAOException e) {
             log.error(e);
-            throw new NegocioException("cadastrosiagas.erro.pesquisapeloargumento", e);
+            throw new NegocioException("cadastrosiagas.ercsvquisapeloargumento", e);
         }
     }
 
@@ -136,7 +135,7 @@ public class ImportaSiagasServiceBean implements ImportaSiagasServiceLocal {
             return cadastroEAO.pesquisarTodos(uf, situacao, inicio, pagina);
         } catch (EAOException e) {
             log.error(e);
-            throw new NegocioException("cadastrosiagas.erro.pesquisa", e);
+            throw new NegocioException("cadastrosiagas.erro.csvsa", e);
         }
     }
 
@@ -150,7 +149,7 @@ public class ImportaSiagasServiceBean implements ImportaSiagasServiceLocal {
             return cadastroEAO.contarPocos(uf, situacao, parametro);
         } catch (EAOException e) {
             log.error(e);
-            throw new NegocioException("cadastrosiagas.erro.contarpocos", e);
+            throw new NegocioException("cadastrosiagas.erro.csvpocos", e);
         }
     }
 
@@ -160,7 +159,7 @@ public class ImportaSiagasServiceBean implements ImportaSiagasServiceLocal {
             return cadastroEAO.pesquisarProprietario(cpf_cnpj);
         } catch (EAOException e) {
             log.error(e);
-            throw new NegocioException("cadastrosiagas.erro.pesquisaproprietario", e);
+            throw new NegocioException("cadastrosiagas.erro.csvsaproprietario", e);
         }
     }
 
@@ -170,7 +169,7 @@ public class ImportaSiagasServiceBean implements ImportaSiagasServiceLocal {
             return cadastroEAO.recuperarMaxIDProprietario();
         } catch (EAOException e) {
             log.error(e);
-            throw new NegocioException("cadastrosiagas.erro.recuperarmaxid", e);
+            throw new NegocioException("cadastrosiagas.erro.csvrarmaxid", e);
         }
     }
 
@@ -191,7 +190,7 @@ public class ImportaSiagasServiceBean implements ImportaSiagasServiceLocal {
             }
         } catch (EAOException e) {
             log.error(e);
-            throw new NegocioException("cadastrosiagas.erro.salvar", e);
+            throw new NegocioException("cadastrosiagas.erro.csv", e);
         }
     }
 
@@ -201,7 +200,7 @@ public class ImportaSiagasServiceBean implements ImportaSiagasServiceLocal {
             cadastroEAO.excluir(poco);
         } catch (EAOException e) {
             log.error(e);
-            throw new NegocioException("cadastrosiagas.erro.excluir", e);
+            throw new NegocioException("cadastrosiagas.erro.csvr", e);
         }
     }
 
@@ -211,7 +210,7 @@ public class ImportaSiagasServiceBean implements ImportaSiagasServiceLocal {
             return cadastroEAO.consultarPorPk(idPoco);
         } catch (EAOException e) {
             log.error(e);
-            throw new NegocioException("cadastrosiagas.erro.carregarpoco", e);
+            throw new NegocioException("cadastrosiagas.erro.csvarpoco", e);
         }
     }
 

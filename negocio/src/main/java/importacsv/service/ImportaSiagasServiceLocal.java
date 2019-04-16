@@ -12,7 +12,7 @@ import importacsv.entidade.PocoValidacao;
  * @since 28/07/2014
  */
 @Local
-public interface ImportaSiagasServiceLocal {
+public interface ImportaCsvServiceLocal {
 
     /**
      * Método responsável por verificar as permissões do sistema pelo CPF.

@@ -18,8 +18,8 @@ import br.com.edu.framework.util.Constantes;
 import importacsv.config.Credenciais;
 import importacsv.dominio.PaginasEnum;
 import importacsv.service.CorporativoServiceLocal;
-import importacsv.service.ImportaSiagasServiceLocal;
-import br.gov.ana.wsclient.snirh.administracao.Restricao;
+import importacsv.service.ImportaCsvServiceLocal;
+import br.gov.edu.wsclient.snirh.administracao.Restricao;
 
 @Log4j
 @Named
@@ -40,10 +40,10 @@ public class AutenticarMB extends AbstractUFMB {
 
     @Inject
     @Getter @Setter
-    private ImportaSiagasMB cadastroCargaDadosMB;
+    private ImportaCsvMB cadastroCargaDadosMB;
 
     @EJB
-    private transient ImportaSiagasServiceLocal importaSiagasService;
+    private transient ImportaCsvServiceLocal importaCsvService;
 
     @Getter @Setter
     private transient Restricao rest;
@@ -84,7 +84,7 @@ public class AutenticarMB extends AbstractUFMB {
             credenciais.setAutenticado(auth);
 
             if (auth) {
-                importaSiagasService.verificarPermissoes(credenciais.getIdentificador());
+                importaCsvService.verificarPermissoes(credenciais.getIdentificador());
                 cadastroCargaDadosMB.init();
                 String pagina = Constantes.URL_HOME;
                 redirect(pagina);

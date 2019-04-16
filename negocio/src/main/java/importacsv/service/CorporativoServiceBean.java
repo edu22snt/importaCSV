@@ -9,16 +9,16 @@ import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
 
 import br.com.edu.framework.excecao.ServicoRemotoException;
-import br.gov.ana.wsclient.correios.service.CEP;
-import br.gov.ana.wsclient.dne.PesquisaDNE;
-import br.gov.ana.wsclient.ig.PesquisaUFMunicipio;
-import br.gov.ana.wsclient.ig.municipio.service.Municipio;
-import br.gov.ana.wsclient.ig.uf.service.UF;
-import br.gov.ana.wsclient.receitafederal.PesquisaReceita;
-import br.gov.ana.wsclient.receitafederal.service.ReceitaFederalVO;
-import br.gov.ana.wsclient.snirh.AdministracaoSNIRH;
-import br.gov.ana.wsclient.snirh.AutenticacaoSNIRH;
-import br.gov.ana.wsclient.snirh.administracao.Usuario;
+import br.gov.edu.wsclient.correios.service.CEP;
+import br.gov.edu.wsclient.dne.PesquisaDNE;
+import br.gov.edu.wsclient.ig.PesquisaUFMunicipio;
+import br.gov.edu.wsclient.ig.municipio.service.Municipio;
+import br.gov.edu.wsclient.ig.uf.service.UF;
+import br.gov.edu.wsclient.receitafederal.PesquisaReceita;
+import br.gov.edu.wsclient.receitafederal.service.ReceitaFederalVO;
+import br.gov.edu.wsclient.snirh.AdministracaoSNIRH;
+import br.gov.edu.wsclient.snirh.AutenticacaoSNIRH;
+import br.gov.edu.wsclient.snirh.administracao.Usuario;
 
 @Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)
