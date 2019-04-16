@@ -4,7 +4,7 @@ import javax.inject.Named;
 import javax.management.Query;
 import javax.persistence.NoResultException;
 
-import br.com.ctis.framework.config.ConfigSource;
+import br.com.edu.framework.config.ConfigSource;
 import importacsv.entidade.ParametroConfiguracao;
 import lombok.extern.log4j.Log4j;
 

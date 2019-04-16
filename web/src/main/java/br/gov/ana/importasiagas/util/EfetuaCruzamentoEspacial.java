@@ -1,9 +1,9 @@
-package br.gov.ana.importasiagas.util;
+package importacsv.util;
 
 import java.util.List;
 
-import br.com.ctis.framework.excecao.ServicoRemotoException;
-import br.gov.ana.importasiagas.entidade.PocoValidacao;
+import br.com.edu.framework.excecao.ServicoRemotoException;
+import importacsv.entidade.PocoValidacao;
 import br.gov.ana.wsclient.cruzamentoespacial.service.Exception_Exception;
 import br.gov.ana.wsclient.cruzamentoespacial.service.ProcessadorDeNegocioService;
 import br.gov.ana.wsclient.cruzamentoespacial.service.ResultadosPesquisa;

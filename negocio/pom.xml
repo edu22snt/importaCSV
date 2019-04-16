@@ -3,24 +3,24 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>importasiagasNEGOCIO</artifactId>
+    <artifactId>importacsvNEGOCIO</artifactId>
 
     <packaging>ejb</packaging>
 
     <parent>
         <groupId>br.gov.ana</groupId>
-        <artifactId>ImportaSIAGAS</artifactId>
-        <version>2.2.1.528</version>
+        <artifactId>ImportaCSV</artifactId>
+        <version>1.0.0.0</version>
     </parent>
 
-    <name>IMPORTASIAGAS - Negócio</name>
+    <name>IMPORTACSV - Negócio</name>
 
     <dependencies>
 
         <!-- DEPENDENCIAS DO PROJETO -->
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>importasiagasINTERFACES</artifactId>
+            <artifactId>importacsvINTERFACES</artifactId>
             <version>${project.version}</version>
             <scope>provided</scope>
         </dependency>

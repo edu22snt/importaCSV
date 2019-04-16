@@ -34,7 +34,7 @@
             <type>war</type>
         </dependency>
         <dependency>
-            <groupId>br.com.ctis</groupId>
+            <groupId>br.com.edu</groupId>
             <artifactId>jee6-framework</artifactId>
             <type>jar</type>
         </dependency>

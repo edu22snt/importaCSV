@@ -2,7 +2,7 @@ package importacsv.eao;
 
 import java.util.List;
 
-import br.com.ctis.framework.excecao.EAOException;
+import br.com.edu.framework.excecao.EAOException;
 import importacsv.entidade.TipoAto;
 import lombok.extern.log4j.Log4j;
 

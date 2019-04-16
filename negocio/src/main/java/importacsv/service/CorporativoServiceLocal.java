@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.ejb.Local;
 
-import br.com.ctis.framework.excecao.ServicoRemotoException;
+import br.com.edu.framework.excecao.ServicoRemotoException;
 import br.gov.ana.wsclient.correios.service.CEP;
 import br.gov.ana.wsclient.ig.municipio.service.Municipio;
 import br.gov.ana.wsclient.ig.uf.service.UF;

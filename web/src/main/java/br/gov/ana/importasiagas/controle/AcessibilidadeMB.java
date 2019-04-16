@@ -1,4 +1,4 @@
-package br.gov.ana.importasiagas.controle;
+package importacsv.controle;
 
 import java.io.Serializable;
 import java.util.Locale;
@@ -7,7 +7,7 @@ import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
-import br.com.ctis.framework.faces.AbstractMB;
+import br.com.edu.framework.faces.AbstractMB;
 
 @Named
 @SessionScoped

@@ -8,7 +8,7 @@ import javax.ejb.TransactionAttributeType;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
 
-import br.com.ctis.framework.excecao.ServicoRemotoException;
+import br.com.edu.framework.excecao.ServicoRemotoException;
 import br.gov.ana.wsclient.correios.service.CEP;
 import br.gov.ana.wsclient.dne.PesquisaDNE;
 import br.gov.ana.wsclient.ig.PesquisaUFMunicipio;

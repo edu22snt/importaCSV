@@ -5,8 +5,8 @@ import java.io.Serializable;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import br.com.ctis.framework.modelo.GenericEntity;
-import br.com.ctis.framework.modelo.GenericJPAEAO;
+import br.com.edu.framework.modelo.GenericEntity;
+import br.com.edu.framework.modelo.GenericJPAEAO;
 
 
 public class ImportaCsvEAO <E extends GenericEntity<ID>, ID extends Serializable> extends GenericJPAEAO<E, ID>  {

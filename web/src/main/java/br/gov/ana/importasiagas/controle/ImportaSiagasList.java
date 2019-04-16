@@ -1,4 +1,4 @@
-package br.gov.ana.importasiagas.controle;
+package importacsv.controle;
 
 import java.util.Collections;
 import java.util.List;
@@ -6,11 +6,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import lombok.extern.log4j.Log4j;
-import br.com.ctis.framework.excecao.NegocioException;
-import br.com.ctis.framework.lazy.PaginatedArrayList;
-import br.com.ctis.framework.util.ConverterUtil;
-import br.gov.ana.importasiagas.entidade.PocoValidacao;
-import br.gov.ana.importasiagas.service.ImportaSiagasServiceLocal;
+import br.com.edu.framework.excecao.NegocioException;
+import br.com.edu.framework.lazy.PaginatedArrayList;
+import br.com.edu.framework.util.ConverterUtil;
+import importacsv.entidade.PocoValidacao;
+import importacsv.service.ImportaSiagasServiceLocal;
 
 /**
  * @author eduardo.andrade

@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.management.Query;
 
-import br.com.ctis.framework.excecao.EAOException;
+import br.com.edu.framework.excecao.EAOException;
 import importacsv.entidade.PlanilhaCardaDados;
 import lombok.extern.log4j.Log4j;
 

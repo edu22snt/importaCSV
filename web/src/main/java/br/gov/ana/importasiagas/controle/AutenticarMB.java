@@ -1,4 +1,4 @@
-package br.gov.ana.importasiagas.controle;
+package importacsv.controle;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -11,14 +11,14 @@ import javax.inject.Named;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
-import br.com.ctis.framework.excecao.NegocioException;
-import br.com.ctis.framework.excecao.ServicoRemotoException;
-import br.com.ctis.framework.faces.Mensagens;
-import br.com.ctis.framework.util.Constantes;
-import br.gov.ana.importasiagas.config.Credenciais;
-import br.gov.ana.importasiagas.dominio.PaginasEnum;
-import br.gov.ana.importasiagas.service.CorporativoServiceLocal;
-import br.gov.ana.importasiagas.service.ImportaSiagasServiceLocal;
+import br.com.edu.framework.excecao.NegocioException;
+import br.com.edu.framework.excecao.ServicoRemotoException;
+import br.com.edu.framework.faces.Mensagens;
+import br.com.edu.framework.util.Constantes;
+import importacsv.config.Credenciais;
+import importacsv.dominio.PaginasEnum;
+import importacsv.service.CorporativoServiceLocal;
+import importacsv.service.ImportaSiagasServiceLocal;
 import br.gov.ana.wsclient.snirh.administracao.Restricao;
 
 @Log4j

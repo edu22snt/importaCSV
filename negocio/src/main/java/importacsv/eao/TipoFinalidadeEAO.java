@@ -3,8 +3,8 @@ package importacsv.eao;
 import java.util.List;
 
 import lombok.extern.log4j.Log4j;
-import br.com.ctis.framework.excecao.EAOException;
-import br.gov.ana.importasiagas.entidade.TipoFinalidade;
+import br.com.edu.framework.excecao.EAOException;
+import importacsv.entidade.TipoFinalidade;
 
 /**
  * @author eduardo.andrade

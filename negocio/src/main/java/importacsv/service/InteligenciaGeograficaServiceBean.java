@@ -7,7 +7,7 @@ import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
 
 import lombok.extern.log4j.Log4j;
-import br.com.ctis.framework.excecao.ServicoRemotoException;
+import br.com.edu.framework.excecao.ServicoRemotoException;
 import br.gov.ana.wsclient.cruzamentoespacial.service.ProcessadorDeNegocio;
 import br.gov.ana.wsclient.cruzamentoespacial.service.ResultadosPesquisa;
 import br.gov.ana.wsclient.ig.PesquisaCoordenadas;

@@ -2,7 +2,7 @@ package importacsv.service;
 
 import javax.ejb.Local;
 
-import br.com.ctis.framework.excecao.ServicoRemotoException;
+import br.com.edu.framework.excecao.ServicoRemotoException;
 import br.gov.ana.wsclient.cruzamentoespacial.service.ResultadosPesquisa;
 import br.gov.ana.wsclient.ig.coordenadas.service.JobCoordenada;
 import br.gov.ana.wsclient.ig.dominio.service.JobDominio;

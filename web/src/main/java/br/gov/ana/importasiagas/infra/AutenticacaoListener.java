@@ -1,4 +1,4 @@
-package br.gov.ana.importasiagas.infra;
+package importacsv.infra;
 
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
@@ -6,10 +6,10 @@ import javax.faces.event.PhaseEvent;
 import javax.faces.event.PhaseId;
 
 import lombok.extern.log4j.Log4j;
-import br.com.ctis.framework.faces.AbstractMB;
-import br.com.ctis.framework.faces.Mensagens;
-import br.com.ctis.framework.util.Constantes;
-import br.gov.ana.importasiagas.config.Credenciais;
+import br.com.edu.framework.faces.AbstractMB;
+import br.com.edu.framework.faces.Mensagens;
+import br.com.edu.framework.util.Constantes;
+import importacsv.config.Credenciais;
 
 @Log4j
 public class AutenticacaoListener implements javax.faces.event.PhaseListener {

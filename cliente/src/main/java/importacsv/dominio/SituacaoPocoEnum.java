@@ -1,6 +1,6 @@
 package importacsv.dominio;
 
-import br.com.ctis.framework.util.Resources;
+import br.com.edu.framework.util.Resources;
 
 /**
  * @author eduardo.andrade

@@ -13,10 +13,10 @@ import javax.ejb.TransactionManagementType;
 import javax.inject.Inject;
 
 import lombok.extern.log4j.Log4j;
-import br.com.ctis.framework.excecao.EAOException;
-import br.com.ctis.framework.excecao.NegocioException;
-import br.com.ctis.framework.excecao.ServicoRemotoException;
-import br.gov.ana.importasiagas.entidade.PocoValidacao;
+import br.com.edu.framework.excecao.EAOException;
+import br.com.edu.framework.excecao.NegocioException;
+import br.com.edu.framework.excecao.ServicoRemotoException;
+import importacsv.entidade.PocoValidacao;
 import br.gov.ana.wsclient.ig.uf.service.UF;
 import br.gov.ana.wsclient.snirh.administracao.Atividade;
 import br.gov.ana.wsclient.snirh.administracao.Autorizacao;

@@ -7,20 +7,20 @@ import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
 import javax.inject.Inject;
 
-import br.com.ctis.framework.excecao.EAOException;
-import br.com.ctis.framework.excecao.NegocioException;
-import br.gov.ana.importasiagas.entidade.TipoCultura;
-import br.gov.ana.importasiagas.entidade.TipoFinalidade;
-import br.gov.ana.importasiagas.entidade.TipoSistemaIrrigacao;
-import br.gov.ana.importasiagas.entidade.TipoAto;
-import br.gov.ana.importasiagas.entidade.TipoSituacaoInterferencia;
+import br.com.edu.framework.excecao.EAOException;
+import br.com.edu.framework.excecao.NegocioException;
+import importacsv.entidade.TipoCultura;
+import importacsv.entidade.TipoFinalidade;
+import importacsv.entidade.TipoSistemaIrrigacao;
+import importacsv.entidade.TipoAto;
+import importacsv.entidade.TipoSituacaoInterferencia;
 import importacsv.eao.TipoAtoEAO;
 import importacsv.eao.TipoCulturaEAO;
 import importacsv.eao.TipoFinalidadeEAO;
 import importacsv.eao.TipoSistemaIrrigacaoEAO;
 import importacsv.eao.TipoSituacaoAtooEAO;
 import importacsv.eao.TipoSituacaoInterferenciaEAO;
-import br.gov.ana.importasiagas.entidade.TipoSituacaoAto;
+import importacsv.entidade.TipoSituacaoAto;
 
 /**
  * @author eduardo.andrade

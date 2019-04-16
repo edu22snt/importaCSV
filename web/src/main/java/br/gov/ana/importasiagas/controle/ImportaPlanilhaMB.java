@@ -1,4 +1,4 @@
-package br.gov.ana.importasiagas.controle;
+package importacsv.controle;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,15 +19,15 @@ import lombok.extern.log4j.Log4j;
 import org.apache.commons.lang3.StringUtils;
 import org.primefaces.model.UploadedFile;
 
-import br.com.ctis.framework.config.ConfigCache;
-import br.com.ctis.framework.excecao.NegocioException;
-import br.com.ctis.framework.faces.Mensagens;
-import br.gov.ana.importasiagas.config.Configuracoes;
-import br.gov.ana.importasiagas.dominio.ListaEnum;
-import br.gov.ana.importasiagas.entidade.PlanilhaCardaDados;
-import br.gov.ana.importasiagas.entidade.PocoValidacao;
-import br.gov.ana.importasiagas.service.ImportaPlanilhaServiceLocal;
-import br.gov.ana.importasiagas.util.PopulaObjetoPoco;
+import br.com.edu.framework.config.ConfigCache;
+import br.com.edu.framework.excecao.NegocioException;
+import br.com.edu.framework.faces.Mensagens;
+import importacsv.config.Configuracoes;
+import importacsv.dominio.ListaEnum;
+import importacsv.entidade.PlanilhaCardaDados;
+import importacsv.entidade.PocoValidacao;
+import importacsv.service.ImportaPlanilhaServiceLocal;
+import importacsv.util.PopulaObjetoPoco;
 
 /**
  * @author eduardo.andrade

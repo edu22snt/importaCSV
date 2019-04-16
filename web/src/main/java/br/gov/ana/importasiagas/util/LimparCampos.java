@@ -1,6 +1,6 @@
-package br.gov.ana.importasiagas.util;
+package importacsv.util;
 
-import br.gov.ana.importasiagas.entidade.PocoValidacao;
+import importacsv.entidade.PocoValidacao;
 
 public class LimparCampos {
 

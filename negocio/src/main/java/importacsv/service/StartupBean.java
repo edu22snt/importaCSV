@@ -13,8 +13,8 @@ import javax.ejb.TransactionManagementType;
 import javax.inject.Inject;
 
 import lombok.extern.log4j.Log4j;
-import br.com.ctis.framework.config.ConfigCache;
-import br.com.ctis.framework.util.StartupUtil;
+import br.com.edu.framework.config.ConfigCache;
+import br.com.edu.framework.util.StartupUtil;
 import importacsv.config.Configuracoes;
 import importacsv.eao.ParametroConfiguracaoEAO;
 
@@ -50,7 +50,7 @@ public class StartupBean {
     }
 
     private void inicializarLog4J() throws IOException {
-        String logDir = StartupUtil.inicializarLog4jDir("importasiagas");
+        String logDir = StartupUtil.inicializarLog4jDir("imimportacsv;
 
         Properties log4jConfig = new Properties();
         log4jConfig.load(getClass().getResourceAsStream("/log4j.properties"));

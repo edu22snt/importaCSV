@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.ejb.Local;
 
-import br.com.ctis.framework.excecao.NegocioException;
-import br.gov.ana.importasiagas.entidade.PlanilhaCardaDados;
-import br.gov.ana.importasiagas.entidade.PocoValidacao;
+import br.com.edu.framework.excecao.NegocioException;
+import importacsv.entidade.PlanilhaCardaDados;
+import importacsv.entidade.PocoValidacao;
 
 /**
  * @author eduardo.andrade

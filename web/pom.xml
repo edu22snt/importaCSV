@@ -3,29 +3,29 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>importasiagasWEBAPP</artifactId>
+    <artifactId>importacsvWEBAPP</artifactId>
 
     <packaging>war</packaging>
 
     <parent>
         <groupId>br.gov.ana</groupId>
-        <artifactId>ImportaSIAGAS</artifactId>
-        <version>2.2.1.528</version>
+        <artifactId>ImportaCSV</artifactId>
+        <version>1.0.0.0</version>
     </parent>
 
-    <name>IMPORTASIAGAS - WebApp</name>
+    <name>IMPORTACSV - WebApp</name>
 
 	<dependencies>
         <!-- DEPENDENCIAS DO PROJETO -->
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>importasiagasINTERFACES</artifactId>
+            <artifactId>importacsvINTERFACES</artifactId>
             <version>${project.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>importasiagasNEGOCIO</artifactId>
+            <artifactId>importacsvNEGOCIO</artifactId>
             <version>${project.version}</version>
             <scope>provided</scope>
         </dependency>
@@ -35,12 +35,12 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>br.com.ctis</groupId>
+            <groupId>br.com.edu</groupId>
             <artifactId>jee6-framework</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>br.com.ctis</groupId>
+            <groupId>br.com.edu</groupId>
             <artifactId>bootstrapfaces</artifactId>
             <scope>compile</scope>
             <exclusions>

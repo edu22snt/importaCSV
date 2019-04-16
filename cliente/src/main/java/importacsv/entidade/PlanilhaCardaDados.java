@@ -14,7 +14,7 @@ import javax.persistence.TemporalType;
 
 import lombok.Getter;
 import lombok.Setter;
-import br.com.ctis.framework.modelo.GenericEntity;
+import br.com.edu.framework.modelo.GenericEntity;
 
 /**
  * @author eduardo.andrade

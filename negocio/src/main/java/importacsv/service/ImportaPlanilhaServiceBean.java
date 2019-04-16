@@ -13,10 +13,10 @@ import javax.ejb.TransactionManagementType;
 import javax.inject.Inject;
 
 import lombok.extern.log4j.Log4j;
-import br.com.ctis.framework.excecao.EAOException;
-import br.com.ctis.framework.excecao.NegocioException;
-import br.gov.ana.importasiagas.entidade.PlanilhaCardaDados;
-import br.gov.ana.importasiagas.entidade.PocoValidacao;
+import br.com.edu.framework.excecao.EAOException;
+import br.com.edu.framework.excecao.NegocioException;
+import importacsv.entidade.PlanilhaCardaDados;
+import importacsv.entidade.PocoValidacao;
 import importacsv.eao.PlanilhaCardaDadosEAO;
 import importacsv.eao.PocoValidacaoEAO;
 

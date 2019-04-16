@@ -1,4 +1,4 @@
-package br.gov.ana.importasiagas.util;
+package importacsv.util;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

@@ -4,8 +4,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>br.gov.ana</groupId>
-    <artifactId>ImportaSIAGAS</artifactId>
-    <version>2.2.1.528</version>
+    <artifactId>ImportaCSV</artifactId>
+    <version>1.0.0.0</version>
     <packaging>pom</packaging>
 
     <parent>
@@ -21,23 +21,23 @@
         <module>ear</module>
     </modules>
 
-    <name>Importa SIAGAS</name>
+    <name>Importa CSV</name>
 
     <developers>
         <developer>
             <id>eduardo.monteiro</id>
             <name>Eduardo Monteiro de Andrade</name>
-            <email>eduardo.monteiro@ctis.com.br</email>
-            <organization>CTIS</organization>
-            <organizationUrl>http://www.ctis.com.br</organizationUrl>
+            <email>edu22snt@gmail.com</email>
+            <organization></organization>
+            <organizationUrl></organizationUrl>
         </developer>
     </developers>
 
 	<properties>
-        <scm.baseurl>https://gitlab.apoio.fsw.ctis.com.br/grupo-ana/importa-siagas.git</scm.baseurl>
-        <weblogic.name>IMPORTA_SIAGAS</weblogic.name>
-        <weblogic.user>anderson.osorio</weblogic.user>
-        <weblogic.password>|YdshWoku#99G</weblogic.password>
+        <scm.baseurl>https://gitlab.apoio.fsw.edu.com.br/grupo-ana/importa-csv.git</scm.baseurl>
+        <weblogic.name>IMPORTA_CSV</weblogic.name>
+        <weblogic.user></weblogic.user>
+        <weblogic.password></weblogic.password>
     </properties>
 
     <scm>
@@ -49,7 +49,7 @@
 
 	<dependencies>
         <dependency>
-            <groupId>br.com.ctis</groupId>
+            <groupId>br.com.edu</groupId>
             <artifactId>jee6-framework</artifactId>
             <scope>provided</scope>
         </dependency>
@@ -63,7 +63,7 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>br.com.ctis</groupId>
+                <groupId>br.com.edu</groupId>
                 <artifactId>jee6-framework</artifactId>
                 <version>3.1.0.4</version>
             </dependency>
@@ -73,18 +73,18 @@
                 <version>3.0.0.10</version>
                 <exclusions>
                     <exclusion>
-                        <groupId>br.com.ctis</groupId>
+                        <groupId>br.com.edu</groupId>
                         <artifactId>jee6-framework</artifactId>
                     </exclusion>
                 </exclusions>
             </dependency>
             <dependency>
-                <groupId>br.com.ctis</groupId>
+                <groupId>br.com.edu</groupId>
                 <artifactId>bootstrapfaces</artifactId>
                 <version>3.1.0.7</version>
                 <exclusions>
                     <exclusion>
-                        <groupId>br.com.ctis</groupId>
+                        <groupId>br.com.edu</groupId>
                         <artifactId>jee6-framework</artifactId>
                     </exclusion>
                 </exclusions>

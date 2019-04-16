@@ -1,4 +1,4 @@
-package br.gov.ana.importasiagas.controle;
+package importacsv.controle;
 
 import java.util.List;
 
@@ -6,9 +6,9 @@ import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
-import br.com.ctis.framework.excecao.ServicoRemotoException;
-import br.com.ctis.framework.faces.AbstractMB;
-import br.gov.ana.importasiagas.service.CorporativoServiceLocal;
+import br.com.edu.framework.excecao.ServicoRemotoException;
+import br.com.edu.framework.faces.AbstractMB;
+import importacsv.service.CorporativoServiceLocal;
 import br.gov.ana.wsclient.ig.municipio.service.Municipio;
 import br.gov.ana.wsclient.ig.uf.service.UF;
 

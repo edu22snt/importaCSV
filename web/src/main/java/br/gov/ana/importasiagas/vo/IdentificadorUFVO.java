@@ -1,4 +1,4 @@
-package br.gov.ana.importasiagas.vo;
+package importacsv.vo;
 
 public class IdentificadorUFVO {
 

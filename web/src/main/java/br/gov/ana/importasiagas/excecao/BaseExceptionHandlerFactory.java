@@ -1,4 +1,4 @@
-package br.gov.ana.importasiagas.excecao;
+package importacsv.excecao;
 
 import javax.faces.context.ExceptionHandler;
 import javax.faces.context.ExceptionHandlerFactory;

@@ -1,4 +1,4 @@
-package br.gov.ana.importasiagas.enums;
+package importacsv.enums;
 
 /**
  * @author eduardo.andrade

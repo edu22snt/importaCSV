@@ -1,4 +1,4 @@
-package br.gov.ana.importasiagas.controle;
+package importacsv.controle;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
@@ -9,12 +9,12 @@ import lombok.extern.log4j.Log4j;
 
 import org.hibernate.validator.constraints.Length;
 
-import br.com.ctis.framework.excecao.NegocioException;
-import br.com.ctis.framework.excecao.ServicoRemotoException;
-import br.com.ctis.framework.faces.AbstractMB;
-import br.com.ctis.framework.faces.Mensagens;
-import br.gov.ana.importasiagas.config.Credenciais;
-import br.gov.ana.importasiagas.service.CorporativoServiceLocal;
+import br.com.edu.framework.excecao.NegocioException;
+import br.com.edu.framework.excecao.ServicoRemotoException;
+import br.com.edu.framework.faces.AbstractMB;
+import br.com.edu.framework.faces.Mensagens;
+import importacsv.config.Credenciais;
+import importacsv.service.CorporativoServiceLocal;
 
 @Log4j
 @Named

@@ -9,17 +9,17 @@
 <!--         <jta-data-source>java:/importacsv_ds</jta-data-source> -->
         <jta-data-source>importacsv_ds</jta-data-source>
 
-        <class>br.gov.ana.importacsv.entidade.MunicipioPoco</class>
-        <class>br.gov.ana.importacsv.entidade.ParametroConfiguracao</class>
-        <class>br.gov.ana.importacsv.entidade.PlanilhaCardaDados</class>
-        <class>br.gov.ana.importacsv.entidade.PocoValidacao</class>
-        <class>br.gov.ana.importacsv.entidade.UnidadeFederacao</class>
-        <class>br.gov.ana.importacsv.entidade.TipoFinalidade</class>
-        <class>br.gov.ana.importacsv.entidade.TipoAto</class>
-        <class>br.gov.ana.importacsv.entidade.TipoSituacaoInterferencia</class>
-        <class>br.gov.ana.importacsv.entidade.TipoSituacaoAto</class>
-        <class>br.gov.ana.importacsv.entidade.TipoCultura</class>
-        <class>br.gov.ana.importacsv.entidade.TipoSistemaIrrigacao</class>
+        <class>importacsv.entidade.MunicipioPoco</class>
+        <class>importacsv.entidade.ParametroConfiguracao</class>
+        <class>importacsv.entidade.PlanilhaCardaDados</class>
+        <class>importacsv.entidade.PocoValidacao</class>
+        <class>importacsv.entidade.UnidadeFederacao</class>
+        <class>importacsv.entidade.TipoFinalidade</class>
+        <class>importacsv.entidade.TipoAto</class>
+        <class>importacsv.entidade.TipoSituacaoInterferencia</class>
+        <class>importacsv.entidade.TipoSituacaoAto</class>
+        <class>importacsv.entidade.TipoCultura</class>
+        <class>importacsv.entidade.TipoSistemaIrrigacao</class>
 
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 

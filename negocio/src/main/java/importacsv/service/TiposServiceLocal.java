@@ -4,13 +4,13 @@ import java.util.List;
 
 import javax.ejb.Local;
 
-import br.com.ctis.framework.excecao.NegocioException;
-import br.gov.ana.importasiagas.entidade.TipoCultura;
-import br.gov.ana.importasiagas.entidade.TipoFinalidade;
-import br.gov.ana.importasiagas.entidade.TipoSistemaIrrigacao;
-import br.gov.ana.importasiagas.entidade.TipoAto;
-import br.gov.ana.importasiagas.entidade.TipoSituacaoInterferencia;
-import br.gov.ana.importasiagas.entidade.TipoSituacaoAto;
+import br.com.edu.framework.excecao.NegocioException;
+import importacsv.entidade.TipoCultura;
+import importacsv.entidade.TipoFinalidade;
+import importacsv.entidade.TipoSistemaIrrigacao;
+import importacsv.entidade.TipoAto;
+import importacsv.entidade.TipoSituacaoInterferencia;
+import importacsv.entidade.TipoSituacaoAto;
 
 /**
  * @author eduardo.andrade

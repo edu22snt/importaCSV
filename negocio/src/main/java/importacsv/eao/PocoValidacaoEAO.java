@@ -8,8 +8,8 @@ import javax.persistence.NonUniqueResultException;
 
 import org.apache.commons.lang3.StringUtils;
 
-import br.com.ctis.framework.excecao.EAOException;
-import br.com.ctis.framework.modelo.JPAParameter;
+import br.com.edu.framework.excecao.EAOException;
+import br.com.edu.framework.modelo.JPAParameter;
 import importacsv.entidade.PocoValidacao;
 import importacsv.util.VerificaParametro;
 import lombok.extern.log4j.Log4j;
@@ -55,7 +55,7 @@ public class PocoValidacaoEAO extends ImportaCsvEAO<PocoValidacao, Long> {
             return q.getResultList();
         } catch(RuntimeException ex) {
             log.error(ex);
-            throw new EAOException("cadastrosiagas.erro.pesquisa", ex);
+            throw new EAOException("cadastrocsv.erro.pesquisa", ex);
         }
     }
 
@@ -94,7 +94,7 @@ public class PocoValidacaoEAO extends ImportaCsvEAO<PocoValidacao, Long> {
 
         } catch (RuntimeException rex) {
             log.error(rex);
-            throw new EAOException("cadastrosiagas.erro.pesquisar", rex);
+            throw new EAOException("cadastrocsv.erro.pesquisar", rex);
         }
     }
 
@@ -134,7 +134,7 @@ public class PocoValidacaoEAO extends ImportaCsvEAO<PocoValidacao, Long> {
             return q.getResultList();
         } catch (RuntimeException rex) {
             log.error(rex);
-            throw new EAOException("cadastrosiagas.erro.pesquisar", rex);
+            throw new EAOException("cadastrocsv.erro.pesquisar", rex);
         }
     }
 
@@ -175,7 +175,7 @@ public class PocoValidacaoEAO extends ImportaCsvEAO<PocoValidacao, Long> {
             return q.getResultList();
         } catch (RuntimeException rex) {
             log.error(rex);
-            throw new EAOException("cadastrosiagas.erro.pesquisa", rex);
+            throw new EAOException("cadastrocsv.erro.pesquisa", rex);
         }
     }
 
@@ -216,7 +216,7 @@ public class PocoValidacaoEAO extends ImportaCsvEAO<PocoValidacao, Long> {
             return 0L;
         } catch (RuntimeException ex) {
             log.error(ex);
-            throw new EAOException("cadastrosiagas.erro.pesquisa", ex);
+            throw new EAOException("cadastrocsv.erro.pesquisa", ex);
         }
     }
 
@@ -315,7 +315,7 @@ public class PocoValidacaoEAO extends ImportaCsvEAO<PocoValidacao, Long> {
             return (Long) query.getSingleResult();
         }catch(RuntimeException rex){
             log.error(rex);
-            throw new EAOException("cadastrosiagas.erro.pesquisa", rex);
+            throw new EAOException("cadastrocsv.erro.pesquisa", rex);
         }
     }
 
@@ -330,7 +330,7 @@ public class PocoValidacaoEAO extends ImportaCsvEAO<PocoValidacao, Long> {
             return consultar("importa.PesquisarProprietario", new JPAParameter("cpfCnpj", cpfCnpj));
         } catch (RuntimeException rex) {
             log.error(rex);
-            throw new EAOException("cadastrosiagas.erro.pesquisa", rex);
+            throw new EAOException("cadastrocsv.erro.pesquisa", rex);
         }
     }
 
@@ -345,7 +345,7 @@ public class PocoValidacaoEAO extends ImportaCsvEAO<PocoValidacao, Long> {
             return (Long) query.getSingleResult();
         } catch (RuntimeException rex) {
             log.error(rex);
-            throw new EAOException("cadastrosiagas.erro.recuperarmaxid", rex);
+            throw new EAOException("cadastrocsv.erro.recuperarmaxid", rex);
         }
     }
 
