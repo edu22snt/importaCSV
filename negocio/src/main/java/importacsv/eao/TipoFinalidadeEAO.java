@@ -23,7 +23,7 @@ public class TipoFinalidadeEAO extends ImportaCsvEAO<TipoFinalidade, Long> {
             return consultar("tipoFinalidade.listarFinalidade");
         } catch(RuntimeException e) {
             log.error(e);
-            throw new EAOException("cadastrosiagas.erro.pesquisar", e);
+            throw new EAOException("cadastrosicsvrro.pesquisar", e);
         }
     }
 }

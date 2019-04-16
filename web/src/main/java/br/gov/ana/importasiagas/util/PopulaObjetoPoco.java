@@ -185,7 +185,7 @@ public class PopulaObjetoPoco extends AbstractUFMB {
         poco.setUf(linha[11]);
 
         poco.setSituacaoRegistro(1);
-        poco.setDadosOrigem("planilha_siagas");
+        poco.setDadosOrigem("planilha_siacsv
 
         return poco;
     }

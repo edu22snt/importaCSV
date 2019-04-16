@@ -8,12 +8,12 @@ import javax.ejb.TransactionManagementType;
 
 import lombok.extern.log4j.Log4j;
 import br.com.edu.framework.excecao.ServicoRemotoException;
-import br.gov.ana.wsclient.cruzamentoespacial.service.ProcessadorDeNegocio;
-import br.gov.ana.wsclient.cruzamentoespacial.service.ResultadosPesquisa;
-import br.gov.ana.wsclient.ig.PesquisaCoordenadas;
-import br.gov.ana.wsclient.ig.PesquisaDominio;
-import br.gov.ana.wsclient.ig.coordenadas.service.JobCoordenada;
-import br.gov.ana.wsclient.ig.dominio.service.JobDominio;
+import br.gov.edu.wsclient.cruzamentoespacial.service.ProcessadorDeNegocio;
+import br.gov.edu.wsclient.cruzamentoespacial.service.ResultadosPesquisa;
+import br.gov.edu.wsclient.ig.PesquisaCoordenadas;
+import br.gov.edu.wsclient.ig.PesquisaDominio;
+import br.gov.edu.wsclient.ig.coordenadas.service.JobCoordenada;
+import br.gov.edu.wsclient.ig.dominio.service.JobDominio;
 
 @Log4j
 @Stateless

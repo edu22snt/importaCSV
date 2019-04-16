@@ -8,7 +8,7 @@
     <packaging>ejb</packaging>
 
     <parent>
-        <groupId>br.gov.ana</groupId>
+        <groupId>br.gov.edu</groupId>
         <artifactId>ImportaCSV</artifactId>
         <version>1.0.0.0</version>
     </parent>

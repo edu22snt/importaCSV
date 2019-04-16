@@ -53,7 +53,7 @@ public class TiposServiceBean implements TiposServiceLocal {
         try {
             return finalidadeEAO.listarFinalidade();
         } catch (EAOException e) {
-            throw new NegocioException("cadastrosiagas.erro.pesquisar", e);
+            throw new NegocioException("cadastrocsv.erro.pesquisar", e);
         }
     }
 
@@ -62,7 +62,7 @@ public class TiposServiceBean implements TiposServiceLocal {
         try {
             return situacaoOutorgaEAO.listarSituacaoAtoo();
         } catch (EAOException e) {
-            throw new NegocioException("cadastrosiagas.erro.pesquisar", e);
+            throw new NegocioException("cadastrocsv.erro.pesquisar", e);
         }
     }
 
@@ -71,7 +71,7 @@ public class TiposServiceBean implements TiposServiceLocal {
         try {
             return situacaoInterferenciaEAO.listarSituacaoInterferencia();
         } catch (EAOException e) {
-            throw new NegocioException("cadastrosiagas.erro.pesquisar", e);
+            throw new NegocioException("cadastrocsv.erro.pesquisar", e);
         }
     }
 
@@ -80,7 +80,7 @@ public class TiposServiceBean implements TiposServiceLocal {
         try {
             return situacaoAtoEAO.listarSituacaoAto();
         } catch (EAOException e) {
-            throw new NegocioException("cadastrosiagas.erro.pesquisar", e);
+            throw new NegocioException("cadastrocsv.erro.pesquisar", e);
         }
     }
 
@@ -89,7 +89,7 @@ public class TiposServiceBean implements TiposServiceLocal {
         try {
             return sistemaIrrigacaoEAO.listarSistemaIrrigacao();
         } catch (EAOException e) {
-            throw new NegocioException("cadastrosiagas.erro.pesquisar", e);
+            throw new NegocioException("cadastrocsv.erro.pesquisar", e);
         }
     }
 
@@ -98,7 +98,7 @@ public class TiposServiceBean implements TiposServiceLocal {
         try {
             return tipoCulturaEAO.listarCultura();
         } catch (EAOException e) {
-            throw new NegocioException("cadastrosiagas.erro.pesquisar", e);
+            throw new NegocioException("cadastrocsv.erro.pesquisar", e);
         }
     }
 }

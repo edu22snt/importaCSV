@@ -10,27 +10,27 @@ import br.com.edu.framework.excecao.NegocioException;
 import br.com.edu.framework.lazy.PaginatedArrayList;
 import br.com.edu.framework.util.ConverterUtil;
 import importacsv.entidade.PocoValidacao;
-import importacsv.service.ImportaSiagasServiceLocal;
+import importacsv.service.ImportaCsvServiceLocal;
 
 /**
  * @author eduardo.andrade
  * @since 06/10/2014
  */
 @Log4j
-public class ImportaSiagasList extends PaginatedArrayList<PocoValidacao> {
+public class ImportaCsvList extends PaginatedArrayList<PocoValidacao> {
 
     private String parametro;
     private String uf;
     private int situacao;
 
-    public ImportaSiagasList(ImportaSiagasServiceLocal datasource, String parametros, String uf, int situacao, int pageSize) {
+    public ImportaCsvList(ImportaCsvServiceLocal datasource, String parametros, String uf, int situacao, int pageSize) {
         super(datasource, pageSize);
         this.parametro = parametros;
         this.uf = uf;
         this.situacao = situacao;
     }
 
-    public ImportaSiagasList(ImportaSiagasServiceLocal datasource, String parametros, String uf, int situacaoPoco) {
+    public ImportaCsvList(ImportaCsvServiceLocal datasource, String parametros, String uf, int situacaoPoco) {
         this(datasource, parametros, uf, situacaoPoco, 10);
     }
 
@@ -38,7 +38,7 @@ public class ImportaSiagasList extends PaginatedArrayList<PocoValidacao> {
     public int count() throws RuntimeException {
         try {
             limparMascaras();
-            Long count = ((ImportaSiagasServiceLocal)getDatasource()).contarPocos(parametro, uf, situacao);
+            Long count = ((ImportaCsvServiceLocal)getDatasource()).contarPocos(parametro, uf, situacao);
             return count.intValue();
         } catch (NegocioException e) {
             log.error(e);
@@ -50,7 +50,7 @@ public class ImportaSiagasList extends PaginatedArrayList<PocoValidacao> {
     public List<PocoValidacao> load(int inicio, int pagina) throws RuntimeException {
         try {
             limparMascaras();
-            return ((ImportaSiagasServiceLocal)getDatasource()).pesquisarPoco(parametro, uf, situacao, inicio, pagina);
+            return ((ImportaCsvServiceLocal)getDatasource()).pesquisarPoco(parametro, uf, situacao, inicio, pagina);
         } catch (NegocioException e) {
             log.error(e);
             return Collections.emptyList();

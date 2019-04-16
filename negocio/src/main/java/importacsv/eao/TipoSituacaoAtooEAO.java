@@ -23,7 +23,7 @@ public class TipoSituacaoAtooEAO extends ImportaCsvEAO<TipoSituacaoAto, Long> {
             return consultar("tipoSituacaoAto.listarSituacaoAto");
         } catch(RuntimeException e) {
             log.error(e);
-            throw new EAOException("cadastrosiagas.erro.pesquisar", e);
+            throw new EAOException("cadastrocsv.erro.pesquisar", e);
         }
     }
 }

@@ -18,11 +18,11 @@
             <div class="col-md-4">
                 <b:select id="uf"
                     label="#{msg['label.filtrarporuf']}"
-                    value="#{importaSiagasMB.ufArgumento}"
+                    value="#{importaCsvMB.ufArgumento}"
                     disabled="#{credenciais.uf ne null}"
                     formLayout="horizontal"  inputSize="6 6 6 6" labelSize="6 6 6 6" >
                     <f:selectItem itemValue="" itemLabel="#{msg['label.selecione']}"/>
-                    <f:selectItems value="#{importaSiagasMB.buscarUFs()}"
+                    <f:selectItems value="#{importaCsvMB.buscarUFs()}"
                         var="uf" itemValue="#{uf.sigla}"
                         itemLabel="#{uf.sigla}"/>
                     <f:ajax execute="@form"/>
@@ -31,35 +31,35 @@
             <div class="col-md-8">
             </div>
         </div>
-        <h:panelGroup id="siagasTab" display="block">
+        <h:panelGroup id="csvTab" display="block">
             <ul id="tabelas" class="nav nav-tabs">
                 <li class="active">
                     <a href="#emAnalise" data-toggle="tab">#{msg['label.statusemanalise']}
-                        (#{importaSiagasMB.registrosEmAnalise.count()})</a>
+                        (#{importaCsvMB.registrosEmAnalise.count()})</a>
                 </li>
                 <li class="">
                     <a href="#retificado" data-toggle="tab">#{msg['label.statusretificado']}
-                        (#{importaSiagasMB.registrosRetificados.count()})</a>
+                        (#{importaCsvMB.registrosRetificados.count()})</a>
                 </li>
                 <li class="">
                     <a href="#sincronizado" data-toggle="tab">#{msg['label.statussincronizado']}
-                        (#{importaSiagasMB.registrosSincronizados.count()})</a>
+                        (#{importaCsvMB.registrosSincronizados.count()})</a>
                 </li>
                 <li class="">
                     <a href="#naoSincronizado" data-toggle="tab">#{msg['label.statusnaosincronizado']}
-                        (#{importaSiagasMB.registrosNaoSincronizados.count()})</a>
+                        (#{importaCsvMB.registrosNaoSincronizados.count()})</a>
                 </li>
             </ul>
 
-            <div id="siagasTabContent" class="tab-content" >
+            <div id="csvTabContent" class="tab-content" >
                 <div class="tab-pane fade active in" id="emAnalise">
-                    <b:crudTable id="crudEAna" value="#{importaSiagasMB.registrosEmAnalise}"
-                        actionForRefresh="#{importaSiagasMB.pesquisarEmAnalise()}"
-                        searchParameter="#{importaSiagasMB.parametro}"
-                        actionForSearch="#{importaSiagasMB.pesquisarEmAnalise()}"
-                        actionForClear="#{importaSiagasMB.limparPesquisaEmAnalise()}"
+                    <b:crudTable id="crudEAna" value="#{importaCsvMB.registrosEmAnalise}"
+                        actionForRefresh="#{importaCsvMB.pesquisarEmAnalise()}"
+                        searchParameter="#{importaCsvMB.parametro}"
+                        actionForSearch="#{importaCsvMB.pesquisarEmAnalise()}"
+                        actionForClear="#{importaCsvMB.limparPesquisaEmAnalise()}"
                         renderOnSearch="@form"
-                        headerTitle="#{msg['cadastrosiagas.titulo']}"
+                        headerTitle="#{msg['cadastrocsv.titulo']}"
                         columnClasses="
                             an-c1 text-center hidden-xs,
                             an-c2 text-center,
@@ -72,7 +72,7 @@
                             <h:graphicImage library="img" name="bandeira-#{reg.uf}.png" styleClass="home-flag"/>
                         </h:column>
                         <h:column headerClass="text-center">
-                            <f:facet name="header">#{msg['label.numerosiagas']}</f:facet>
+                            <f:facet name="header">#{msg['label.numerocsv']}</f:facet>
                             #{reg.ponto}
                         </h:column>
                         <h:column headerClass="text-center hidden-xs">
@@ -86,12 +86,12 @@
                         <h:column headerClass="text-center">
                             <f:facet name="header">#{msg['label.acoes']}</f:facet>
 
-                            <h:commandLink action="#{importaSiagasMB.visualizarPoco(reg.id)}" 
+                            <h:commandLink action="#{importaCsvMB.visualizarPoco(reg.id)}" 
                                 styleClass="btn btn-default btn-sm" title="#{msg['label.visualizarpoco']}">
                                 <span class="fa fa-eye"></span>
                             </h:commandLink>
 
-                            <h:commandLink action="#{importaSiagasMB.editarPoco(reg.id)}" 
+                            <h:commandLink action="#{importaCsvMB.editarPoco(reg.id)}" 
                                 styleClass="btn btn-default btn-sm" title="#{msg['label.alterarpoco']}">
                                 <span class="fa fa-pencil"></span>
                             </h:commandLink>
@@ -100,14 +100,14 @@
                 </div>
 
                 <div class="tab-pane fade in" id="retificado">
-                    <b:crudTable id="crudRet" value="#{importaSiagasMB.registrosRetificados}"
-                        actionForRefresh="#{importaSiagasMB.pesquisarRetificados()}"
-                        searchParameter="#{importaSiagasMB.parametro}"
-                        actionForSearch="#{importaSiagasMB.pesquisarRetificados()}"
-                        actionForClear="#{importaSiagasMB.limparPesquisaSincronizados()}"
+                    <b:crudTable id="crudRet" value="#{importaCsvMB.registrosRetificados}"
+                        actionForRefresh="#{importaCsvMB.pesquisarRetificados()}"
+                        searchParameter="#{importaCsvMB.parametro}"
+                        actionForSearch="#{importaCsvMB.pesquisarRetificados()}"
+                        actionForClear="#{importaCsvMB.limparPesquisaSincronizados()}"
                         scriptForNew="@form"
                         renderOnSearch="@form"
-                        headerTitle="#{msg['cadastrosiagas.titulo']}"
+                        headerTitle="#{msg['cadastrocsv.titulo']}"
                         columnClasses="
                             ret-c1 text-center hidden-xs,
                             ret-c2 text-center,
@@ -122,7 +122,7 @@
                             <h:graphicImage library="img" name="bandeira-#{reg.uf}.png" styleClass="home-flag"/>
                         </h:column>
                         <h:column>
-                            <f:facet name="header">#{msg['label.numerosiagas']}</f:facet>
+                            <f:facet name="header">#{msg['label.numerocsv']}</f:facet>
                             #{reg.ponto}
                         </h:column>
                         <h:column headerClass="text-center">
@@ -144,7 +144,7 @@
                         <h:column headerClass="text-center">
                             <f:facet name="header">#{msg['label.acoes']}</f:facet>
 
-                            <h:commandLink action="#{importaSiagasMB.visualizarPoco(reg.id)}" 
+                            <h:commandLink action="#{importaCsvMB.visualizarPoco(reg.id)}" 
                                 styleClass="btn btn-default btn-sm" title="#{msg['label.visualizarpoco']}">
                                 <span class="fa fa-eye"></span>
                             </h:commandLink>
@@ -153,13 +153,13 @@
                 </div>
 
                 <div class="tab-pane fade in" id="sincronizado">
-                    <b:crudTable id="crudSinc" value="#{importaSiagasMB.registrosSincronizados}"
-                        actionForRefresh="#{importaSiagasMB.pesquisarSincronizados()}"
-                        searchParameter="#{importaSiagasMB.parametro}"
-                        actionForSearch="#{importaSiagasMB.pesquisarSincronizados()}"
-                        actionForClear="#{importaSiagasMB.limparPesquisaSincronizados()}"
+                    <b:crudTable id="crudSinc" value="#{importaCsvMB.registrosSincronizados}"
+                        actionForRefresh="#{importaCsvMB.pesquisarSincronizados()}"
+                        searchParameter="#{importaCsvMB.parametro}"
+                        actionForSearch="#{importaCsvMB.pesquisarSincronizados()}"
+                        actionForClear="#{importaCsvMB.limparPesquisaSincronizados()}"
                         renderOnSearch="@form"
-                        headerTitle="#{msg['cadastrosiagas.titulo']}"
+                        headerTitle="#{msg['cadastrocsv.titulo']}"
                         columnClasses="
                             sinc-c1 text-center hidden-xs,
                             sinc-c2 text-center,
@@ -174,7 +174,7 @@
                             <h:graphicImage library="img" name="bandeira-#{reg.uf}.png" styleClass="home-flag"/>
                         </h:column>
                         <h:column>
-                            <f:facet name="header">#{msg['label.numerosiagas']}</f:facet>
+                            <f:facet name="header">#{msg['label.numerocsv']}</f:facet>
                             #{reg.ponto}
                         </h:column>
                         <h:column headerClass="text-center">
@@ -196,7 +196,7 @@
                         <h:column headerClass="text-center">
                             <f:facet name="header">#{msg['label.acoes']}</f:facet>
 
-                            <h:commandLink action="#{importaSiagasMB.visualizarPoco(reg.id)}" 
+                            <h:commandLink action="#{importaCsvMB.visualizarPoco(reg.id)}" 
                                 styleClass="btn btn-default btn-sm" title="#{msg['label.visualizarpoco']}">
                                 <span class="fa fa-eye"></span>
                             </h:commandLink>
@@ -205,13 +205,13 @@
                 </div>
 
                 <div class="tab-pane fade in" id="naoSincronizado">
-                    <b:crudTable id="crudNSinc" value="#{importaSiagasMB.registrosNaoSincronizados}"
-                        actionForRefresh="#{importaSiagasMB.pesquisarNaoSincronizados()}"
-                        searchParameter="#{importaSiagasMB.parametro}"
-                        actionForSearch="#{importaSiagasMB.pesquisarNaoSincronizados()}"
-                        actionForClear="#{importaSiagasMB.limparPesquisaNaoSincronizados()}"
+                    <b:crudTable id="crudNSinc" value="#{importaCsvMB.registrosNaoSincronizados}"
+                        actionForRefresh="#{importaCsvMB.pesquisarNaoSincronizados()}"
+                        searchParameter="#{importaCsvMB.parametro}"
+                        actionForSearch="#{importaCsvMB.pesquisarNaoSincronizados()}"
+                        actionForClear="#{importaCsvMB.limparPesquisaNaoSincronizados()}"
                         renderOnSearch="@form"
-                        headerTitle="#{msg['cadastrosiagas.titulo']}"
+                        headerTitle="#{msg['cadastrocsv.titulo']}"
                         columnClasses="
                             nsinc-c1 text-center hidden-xs,
                             nsinc-c2 text-center,
@@ -227,7 +227,7 @@
                             <h:graphicImage library="img" name="bandeira-#{reg.uf}.png" styleClass="home-flag"/>
                         </h:column>
                         <h:column>
-                            <f:facet name="header">#{msg['label.numerosiagas']}</f:facet>
+                            <f:facet name="header">#{msg['label.numerocsv']}</f:facet>
                             #{reg.ponto}
                         </h:column>
                         <h:column headerClass="text-center">
@@ -253,7 +253,7 @@
                         <h:column headerClass="text-center">
                             <f:facet name="header">#{msg['label.acoes']}</f:facet>
 
-                            <h:commandLink action="#{importaSiagasMB.visualizarPoco(reg.id)}" 
+                            <h:commandLink action="#{importaCsvMB.visualizarPoco(reg.id)}" 
                                 styleClass="btn btn-default btn-sm" title="#{msg['label.visualizarpoco']}">
                                 <span class="fa fa-eye"></span>
                             </h:commandLink>

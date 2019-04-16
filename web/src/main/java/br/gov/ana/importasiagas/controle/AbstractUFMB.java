@@ -9,8 +9,8 @@ import javax.inject.Named;
 import br.com.edu.framework.excecao.ServicoRemotoException;
 import br.com.edu.framework.faces.AbstractMB;
 import importacsv.service.CorporativoServiceLocal;
-import br.gov.ana.wsclient.ig.municipio.service.Municipio;
-import br.gov.ana.wsclient.ig.uf.service.UF;
+import br.gov.edu.wsclient.ig.municipio.service.Municipio;
+import br.gov.edu.wsclient.ig.uf.service.UF;
 
 @Named
 @SessionScoped

@@ -4,9 +4,9 @@ import java.util.List;
 
 import br.com.edu.framework.excecao.ServicoRemotoException;
 import importacsv.entidade.PocoValidacao;
-import br.gov.ana.wsclient.cruzamentoespacial.service.Exception_Exception;
-import br.gov.ana.wsclient.cruzamentoespacial.service.ProcessadorDeNegocioService;
-import br.gov.ana.wsclient.cruzamentoespacial.service.ResultadosPesquisa;
+import br.gov.edu.wsclient.cruzamentoespacial.service.Exception_Exception;
+import br.gov.edu.wsclient.cruzamentoespacial.service.ProcessadorDeNegocioService;
+import br.gov.edu.wsclient.cruzamentoespacial.service.ResultadosPesquisa;
 
 /**
  * @author eduardo.andrade
@@ -52,7 +52,7 @@ public class EfetuaCruzamentoEspacial {
             popularObjetoCruzamento(cruzamento);
             return poco;
         } catch (Exception_Exception e) {
-            throw new ServicoRemotoException("cadastrosiagas.erro.serviceig", e);
+            throw new ServicoRemotoException("cadastrocsv.erro.serviceig", e);
         }
     }
 

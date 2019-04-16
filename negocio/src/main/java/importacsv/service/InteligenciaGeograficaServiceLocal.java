@@ -3,9 +3,9 @@ package importacsv.service;
 import javax.ejb.Local;
 
 import br.com.edu.framework.excecao.ServicoRemotoException;
-import br.gov.ana.wsclient.cruzamentoespacial.service.ResultadosPesquisa;
-import br.gov.ana.wsclient.ig.coordenadas.service.JobCoordenada;
-import br.gov.ana.wsclient.ig.dominio.service.JobDominio;
+import br.gov.edu.wsclient.cruzamentoespacial.service.ResultadosPesquisa;
+import br.gov.edu.wsclient.ig.coordenadas.service.JobCoordenada;
+import br.gov.edu.wsclient.ig.dominio.service.JobDominio;
 
 /**
  * @author eduardo.andrade

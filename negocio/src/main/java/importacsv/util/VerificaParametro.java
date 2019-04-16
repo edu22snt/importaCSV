@@ -39,20 +39,20 @@ public class VerificaParametro {
     }
 
     /**
-     * Método responsável para verificar se o parametro é um número siagas.
+     * Método responsável para verificar se o parametro é um número csv.
      * @param arg1
      * @return
      */
-    public static boolean ehNumeroSiagas(String arg1) {
-        boolean isNumeroSiagas = false;
+    public static boolean ehNumeroCsv(String arg1) {
+        boolean isNumeroCsv = false;
         if(ehNumerico(arg1)) {
             if(arg1.trim().length() < 11) {
-                isNumeroSiagas = true;
+                isNumeroCsv = true;
             } else {
-                isNumeroSiagas = false;
+                isNumeroCsv = false;
             }
         }
-        return isNumeroSiagas;
+        return isNumeroCsv;
     }
 
     /**

@@ -35,8 +35,8 @@
 
         <b:menuSection id="menuSection" text="#{sis['sistema.label.navegacao']}">
 
-            <b:menuGroup id="nGerenciar" text="#{msg['cadastrosiagas.titulo']}" icon="i i-stack">
-                <b:menuItem id="iPainelGestor" text="#{msg['label.painelgestor']}" action="#{importaSiagasMB.init()}"/>
+            <b:menuGroup id="nGerenciar" text="#{msg['cadastrocsv.titulo']}" icon="i i-stack">
+                <b:menuItem id="iPainelGestor" text="#{msg['label.painelgestor']}" action="#{importaCsvMB.init()}"/>
                 <ui:fragment rendered="#{credenciais.uf eq null}">
                     <b:menuItem id="iCarga" text="#{msg['label.cargapoco']}" action="#{importaPlanilhaMB.init()}"/>
                 </ui:fragment>
