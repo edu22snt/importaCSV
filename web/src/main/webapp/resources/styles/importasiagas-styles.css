@@ -1,0 +1,157 @@
+@media only screen and (min-width : 320px) {
+    #modalEntidade .modal-dialog { width: 95%; }
+
+    .an-c2 { width: 20%; }
+    .an-c4 { width: 40%; }
+    .an-c5 { width: 40%; }
+
+    .ret-c2 { width: 20%; }
+    .ret-c4 { width: 15%; }
+    .ret-c5 { width: 20%; }
+    .ret-c6 { width: 25%; }
+    .ret-c7 { width: 20%; }
+
+    .sinc-c2 { width: 20%; }
+    .sinc-c4 { width: 15%; }
+    .sinc-c5 { width: 20%; }
+    .sinc-c6 { width: 25%; }
+    .sinc-c7 { width: 20%; }
+
+    .nsinc-c2 { width: 20%; }
+    .nsinc-c4 { width: 15%; }
+    .nsinc-c5 { width: 20%; }
+    .nsinc-c7 { width: 30%; }
+    .nsinc-c8 { width: 15%; }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+    #modalEntidade .modal-dialog { width: 70%; }
+
+    .an-c2 { width: 25%; }
+    .an-c3 { width: 45%; }
+    .an-c4 { width: 10%; }
+    .an-c5 { width: 20%; }
+
+    .ret-c2 { width: 20%; }
+    .ret-c3 { width: 20%; }
+    .ret-c4 { width: 05%; }
+    .ret-c5 { width: 15%; }
+    .ret-c6 { width: 20%; }
+    .ret-c7 { width: 20%; }
+
+    .sinc-c2 { width: 20%; }
+    .sinc-c3 { width: 20%; }
+    .sinc-c4 { width: 05%; }
+    .sinc-c5 { width: 15%; }
+    .sinc-c6 { width: 20%; }
+    .sinc-c7 { width: 20%; }
+
+    .nsinc-c2 { width: 15%; }
+    .nsinc-c3 { width: 15%; }
+    .nsinc-c4 { width: 05%; }
+    .nsinc-c5 { width: 15%; }
+    .nsinc-c6 { width: 20%; }
+    .nsinc-c7 { width: 20%; }
+    .nsinc-c8 { width: 10%; }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+    #modalEntidade .modal-dialog { width: 70%; }
+
+    .an-c1 { width: 1%; }
+    .an-c2 { width: 19%; }
+    .an-c3 { width: 50%; }
+    .an-c4 { width: 10%; }
+    .an-c5 { width: 20%; }
+
+     .ret-c1 { width: 1%; }
+    .ret-c2 { width: 14%; }
+    .ret-c3 { width: 20%; }
+    .ret-c4 { width: 05%; }
+    .ret-c5 { width: 15%; }
+    .ret-c6 { width: 30%; }
+    .ret-c7 { width: 15%; }
+
+    .sinc-c1 { width: 1%; }
+    .sinc-c2 { width: 14%; }
+    .sinc-c3 { width: 20%; }
+    .sinc-c4 { width: 05%; }
+    .sinc-c5 { width: 15%; }
+    .sinc-c6 { width: 30%; }
+    .sinc-c7 { width: 15%; }
+
+     .nsinc-c1 { width: 1%; }
+    .nsinc-c2 { width: 14%; }
+    .nsinc-c3 { width: 20%; }
+    .nsinc-c4 { width: 05%; }
+    .nsinc-c5 { width: 15%; }
+    .nsinc-c6 { width: 15%; }
+    .nsinc-c7 { width: 20%; }
+    .nsinc-c8 { width: 10%; }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+    #modalEntidade .modal-dialog { width: 50%; }
+}
+
+/* ENVIADO PARA O _AGENCIA.SCSS */
+
+.btn {
+    margin-right: 5px;
+}
+
+.input-group-btn > .btn {
+    margin-right: 0px;
+}
+
+header.navbar a > .fa-bars, header.navbar a > .fa-cog {
+    color: #00688f !important;
+}
+
+/* ENVIADO PARA O _AGENCIA.SCSS */
+
+.form-group-nomargin {
+    margin-bottom: 0 !important;
+}
+
+.form-group-nomargin .sr-only {
+    padding-top: 0 !important;
+}
+
+.page-section h3 {
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.home-flag {
+    height: 14px;
+    width: 21px;
+    border: 1px solid gray;
+}
+
+.tableplanilha-header {
+    text-align: center;
+}
+
+.tableplanilha-dataenvio {
+    width: 10%;
+    text-align: center;
+}
+
+.tableplanilha-registroslidos {
+    width: 10%;
+    text-align: center;
+}
+
+.tableplanilha-registrosimportados {
+    width: 10%;
+    text-align: center;
+}
+
+.tableplanilha-log {
+    width: 15%;
+    text-align: center;
+}

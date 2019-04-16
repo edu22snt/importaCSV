@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:h="http://java.sun.com/jsf/html" 
+    xmlns:f="http://java.sun.com/jsf/core" 
+    xmlns:ui="http://java.sun.com/jsf/facelets" 
+    xmlns:o="http://omnifaces.org/ui"
+    xmlns:b="http://www.ctis.com.br/bootstrapfaces"
+    template="/layouts/template_login.xhtml">
+
+<ui:define name="rodape">
+    <div class="row">
+        <div class="col-xs-6 col-xs-offset-3 text-center">
+            <p class="m-n">
+                &#xA9; #{msg['sistema.ano']} #{msg['sistema.instituicao.sigla']}
+                <span class="hidden-xs">-
+                    #{msg['sistema.instituicao']}
+                </span>
+            </p>
+        </div>
+        <div class="col-xs-3 text-right">
+            <ul class="list-inline m-b-none">
+                <li>v#{msg['sistema.versao']}</li>
+            </ul>
+        </div>
+    </div>
+</ui:define>
+
+</ui:composition>

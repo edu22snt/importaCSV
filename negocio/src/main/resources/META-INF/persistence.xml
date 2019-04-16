@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+    version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
+
+    <persistence-unit name="importacsvPU" transaction-type="JTA">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+<!--         <jta-data-source>java:/importacsv_ds</jta-data-source> -->
+        <jta-data-source>importacsv_ds</jta-data-source>
+
+        <class>br.gov.ana.importacsv.entidade.MunicipioPoco</class>
+        <class>br.gov.ana.importacsv.entidade.ParametroConfiguracao</class>
+        <class>br.gov.ana.importacsv.entidade.PlanilhaCardaDados</class>
+        <class>br.gov.ana.importacsv.entidade.PocoValidacao</class>
+        <class>br.gov.ana.importacsv.entidade.UnidadeFederacao</class>
+        <class>br.gov.ana.importacsv.entidade.TipoFinalidade</class>
+        <class>br.gov.ana.importacsv.entidade.TipoAto</class>
+        <class>br.gov.ana.importacsv.entidade.TipoSituacaoInterferencia</class>
+        <class>br.gov.ana.importacsv.entidade.TipoSituacaoAto</class>
+        <class>br.gov.ana.importacsv.entidade.TipoCultura</class>
+        <class>br.gov.ana.importacsv.entidade.TipoSistemaIrrigacao</class>
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
+            <property name="hibernate.transaction.jta.platform" value="org.hibernate.service.jta.platform.internal.WeblogicJtaPlatform" />
+            <property name="hibernate.show_sql" value="false" />
+            <property name="hibernate.format_sql" value="true" />
+        </properties>
+    </persistence-unit>
+
+</persistence>

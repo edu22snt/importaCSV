@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>importacsvEAR</artifactId>
+    <packaging>ear</packaging>
+
+    <parent>
+        <groupId>br.gov.ana</groupId>
+        <artifactId>ImportaCSV</artifactId>
+        <version>1.0.0.0</version>
+    </parent>
+
+    <name>IMPORTACSV - Empacotamento</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>importacsvINTERFACES</artifactId>
+            <version>${project.version}</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>importacsvNEGOCIO</artifactId>
+            <version>${project.version}</version>
+            <type>ejb</type>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>importacsvWEBAPP</artifactId>
+            <version>${project.version}</version>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>br.com.ctis</groupId>
+            <artifactId>jee6-framework</artifactId>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>wsfacade</artifactId>
+            <type>jar</type>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-ear-plugin</artifactId>
+                <configuration>
+                    <finalName>${build.finalname}</finalName>
+                    <defaultLibBundleDir>lib</defaultLibBundleDir>
+                    <modules>
+                        <ejbModule>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>importacsvNEGOCIO</artifactId>
+                        </ejbModule>
+                        <webModule>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>importacsvWEBAPP</artifactId>
+                            <contextRoot>/importacsv</contextRoot>
+                        </webModule>
+                        <jarModule>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>importacsvINTERFACES</artifactId>
+                        </jarModule>
+                    </modules>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.oracle.weblogic</groupId>
+                <artifactId>weblogic-maven-plugin</artifactId>
+                <configuration>
+                    <source>${project.build.directory}/${build.finalname}.${project.packaging}</source>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

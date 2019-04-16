@@ -1,0 +1,121 @@
+<div class="${BASE_CLASS}">
+    <style type="text/css">
+        .esriPopup .contentPane{
+            padding: 7px;
+        }
+        .${BASE_CLASS}{
+            position: relative;
+            font-size : 11px;
+        }
+
+        .${BASE_CLASS} .loading-container {
+            display: none;
+        }
+
+        .${BASE_CLASS}.${LOADING_CLASS} .loading-container {
+            display: block;
+            position: absolute;
+            z-index: 100;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            background-color: #ffffff;
+        }
+
+        .${BASE_CLASS}.loading .loading-container .loading-bounce{
+            display: block;
+            position: absolute;
+            z-index: 2000;
+            top: 30px;
+            left: 50%;
+            margin-left: -7px;
+            width: 14px;
+            height: 14px;
+            border: solid 2px transparent;
+            border-top-color: #29d;
+            border-left-color: #29d;
+            border-radius: 10px;
+            -webkit-animation: pace-spinner 400ms linear infinite;
+            -moz-animation: pace-spinner 400ms linear infinite;
+            -ms-animation: pace-spinner 400ms linear infinite;
+            -o-animation: pace-spinner 400ms linear infinite;
+            animation: pace-spinner 400ms linear infinite;
+        }
+
+        .${BASE_CLASS}.loading .loading-container .loading-label{
+            margin-top: 70px;
+            font-weight: bold;
+        }
+
+        .${BASE_CLASS} .label,
+        .${BASE_CLASS} .value {
+            min-height: 13px;
+            width: 100%;
+            overflow: hidden;
+        }
+        .${BASE_CLASS} .label{
+            font-weight: bold;
+            color : #333333;
+        }
+        .${BASE_CLASS} .value {
+            padding-bottom: 4px;
+        }
+    </style>
+    <div class="loading-container">
+        <div class="loading-bounce"></div>
+        <div class="loading-label">Carregando...</div>
+    </div>
+
+    <div class="my-title" style="margin-bottom: 5px;">Info</div>
+
+    <div class="label">Estado:</div>
+    <div class="value" data-dojo-attach-point="stateDisplay"></div>
+    
+    <div class="label">Municipio:</div>
+    <div class="value" data-dojo-attach-point="countyDisplay"></div>
+    
+    <div class="label">Província/Subprovíncia Hidrogeológica:</div>
+    <div class="value" data-dojo-attach-point="provinceDisplay"></div>
+    
+    <div class="label">Aquífero:</div>
+    <div class="value" data-dojo-attach-point="aquiferDisplay"></div>
+    
+    <div class="label">Região Hidrográfica (N1):</div>
+    <div class="value" data-dojo-attach-point="hydroN1Display"></div>
+    
+    <div class="label">Unidade Hidrográfica (N2):</div>
+    <div class="value" data-dojo-attach-point="hydroN2Display"></div>
+    
+    <div class="label">Unidade de Gestão Local (N3):</div>
+    <div class="value" data-dojo-attach-point="localManagementUnitDisplay"></div>
+
+    <div class="label">Unidade de Gestão Estadual:</div>
+    <div class="value" data-dojo-attach-point="stateManagementUnitDisplay"></div>
+
+    <div class="label">Ottobacia:</div>
+    <div class="value" data-dojo-attach-point="ottobaciaDisplay"></div>
+    <style>
+        @-webkit-keyframes pace-spinner {
+            0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+        }
+        @-moz-keyframes pace-spinner {
+            0% { -moz-transform: rotate(0deg); transform: rotate(0deg); }
+            100% { -moz-transform: rotate(360deg); transform: rotate(360deg); }
+        }
+        @-o-keyframes pace-spinner {
+            0% { -o-transform: rotate(0deg); transform: rotate(0deg); }
+            100% { -o-transform: rotate(360deg); transform: rotate(360deg); }
+        }
+        @-ms-keyframes pace-spinner {
+            0% { -ms-transform: rotate(0deg); transform: rotate(0deg); }
+            100% { -ms-transform: rotate(360deg); transform: rotate(360deg); }
+        }
+        @keyframes pace-spinner {
+            0% { transform: rotate(0deg); transform: rotate(0deg); }
+            100% { transform: rotate(360deg); transform: rotate(360deg); }
+        }
+    </style>
+</div>

@@ -1,0 +1,32 @@
+<div class="${BASE_CLASS}">
+    <style>
+        .${BASE_CLASS} {
+            position: absolute;
+            top : 20px;
+        }
+
+        .${BASE_CLASS}:hover {
+            opacity: 1;
+        }
+
+        .${BASE_CLASS}.right {
+            right : 30px;
+        }
+
+        .${BASE_CLASS}.left {
+            left : 60px;
+        }
+
+
+
+    </style>
+
+    <div class="window" data-dojo-type="windowFloating"
+            data-dojo-props="title : 'Localização espacial'">
+        <div class="${BASE_CLASS}-form"
+             data-dojo-type="app/widgets/well-registry-manager/spatial-location-form"
+             data-dojo-attach-point="spatialForm"/>
+
+    </div>
+
+</div>

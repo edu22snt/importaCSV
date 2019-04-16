@@ -1,0 +1,146 @@
+html, body{
+    padding: 0px;
+    margin: 0px;
+    font-family: Arial;
+    font-size: 12px;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+/*UTILS*/
+.none{
+    display: none;
+}
+.relative{
+    position: relative;
+}
+.absolute{
+     position: absolute;
+}
+
+/*MENSAGENS*/
+#sasjs_error, #sasjs_info{
+    position: absolute;
+    width: 100%;
+    padding: 0;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+}
+#sasjs_error .msg-error, #sasjs_info .msg-info{
+    padding: 10px;
+    padding-right: 25px;
+    border-bottom: 1px solid #ebccd1;
+    text-align: justify;
+    display: block;
+    background: #f2dede;
+    color: #b94a48;
+    position: relative;
+}
+#sasjs_error .msg-error-close, #sasjs_info .msg-info-close{
+    position: absolute;
+    right: 8px;
+    top: 5px;
+    cursor: pointer;
+    border-radius: 100px;
+    background: #fff;
+    padding: 3px 5px;
+    border:1px solid #ebccd1;
+}
+    #sasjs_error .msg-error-close:hover, #sasjs_info .msg-info-close:hover{
+        background: #b94a48;
+        color: #fff;
+    }
+
+#sasjs_info .msg-info{
+    border-bottom: 1px solid #bce8f1;
+    background: #d9edf7;
+    color: #3a87ad;
+}
+#sasjs_info .msg-info-close{
+    border: 1px solid #bce8f1;
+}
+#sasjs_info .msg-info-close:hover{
+    background: #3a87ad;
+    color: #fff;
+}
+
+.esriScalebar {
+    margin-bottom: 40px;
+}
+.esriScalebarLabel {
+    color: #000000 !important;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+.rosa-dos-ventos {
+    width: 64px;
+    height: 64px;
+    background: url("../images/rosa-dos-ventos.png") no-repeat;
+    position: absolute;
+    bottom: 55px;
+    right: 15px;
+    z-index: 10;
+}
+.my-title{
+    padding: 5px; background: #26aeca; color: #fff; font-weight: bold; font-size: 11px
+}
+
+
+
+.sas-container
+{
+    position: relative;
+}
+/*
+    Alteração para percentual utilizado no full-screen para preencher a tela toda
+*/
+#mapContainer{
+    min-width: 100%;
+    min-height: 100%;
+    height: 500px !important;
+}
+
+
+/*Custom*/
+.esriPopup{
+    z-index: 10000 !important;
+}
+.esriSimpleSliderTL{
+    top: 65px;
+}
+.claro .dijitTreeRowSelected{
+    background: #26aeca !important;
+    color: #fff;
+}
+
+    /*
+    * Tree Custom
+    */
+    .tree-custom-checkbox{
+        z-index: 100;
+    }
+    .dijitIconFile, .dijitLeaf{
+        display: none;
+    }
+    input:disabled{
+        color: #000;
+    }
+
+.classFull
+{
+    position: absolute; left: 0; top: 0;  width:100%; height:100%; overflow:hidden; background-color: white;
+}
+
+
+.sas-container-map
+{
+    background-color: #FFFFFF;
+}
+
+/**
+ * Container do botao de Zoom (+/-)
+ */
+#mapContainer_zoom_slider {
+    top: 105px;
+}

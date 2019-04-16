@@ -1,0 +1,154 @@
+<div class="${BASE_CLASS}">
+    <style>
+        .${BASE_CLASS} {
+            width : ${width};
+        }
+
+        .${BASE_CLASS} .${BASE_CLASS}-dms,
+        .${BASE_CLASS} .${BASE_CLASS}-degree {
+            display: none;
+            float: left;
+        }
+
+        .${BASE_CLASS}.dms .${BASE_CLASS}-dms {
+            display: inline;
+        }
+
+        .${BASE_CLASS}.degree .${BASE_CLASS}-degree {
+            display: inline;
+        }
+
+        .${BASE_CLASS}.projected .${BASE_CLASS}-coordFormat{
+            display: none;
+        }
+
+        .${BASE_CLASS}-locate-button {
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        .${BASE_CLASS}-locate-button button {
+            background: #26aeca;
+            border: 1px #228FA9 solid;
+            border-radius: 3px;
+            color: #fff;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .${BASE_CLASS}-locate-button button:hover {
+            background: #228FA9;
+            border: 1px #1E7A91 solid;
+        }
+        .${BASE_CLASS}-locate-button button:active {
+            background: #1E7A91;
+            border: 1px #1B687E solid;
+        }
+    </style>
+    <p class="${BASE_CLASS}-coords">
+        Coordenadas
+        <div class="${BASE_CLASS}-coordFormat row-fluid">
+            <span class="span1">
+                <input id="${ID_BASE}DegreeFormat"
+                       name="coord-format"
+                       value="degree"
+                       checked
+                       data-dojo-type="dijit/form/RadioButton"
+                       data-dojo-attach-event="onChange:onChangeCoordFormatRadioButton"
+                       data-dojo-attach-point="degreeFormatRadioButton"/>
+            </span>
+
+            <label for="${ID_BASE}DegreeFormat" class="span5">Grau decimal</label>
+
+            <span class="span1">
+                <input id="${ID_BASE}GMSFormat"
+                       name="coord-format"
+                       value="dms"
+                       data-dojo-type="dijit/form/RadioButton"
+                       data-dojo-attach-event="onChange:onChangeCoordFormatRadioButton"
+                       data-dojo-attach-point="dmsFormatRadioButton"/>
+            </span>
+
+            <label for="${ID_BASE}GMSFormat" class="span3">G.M.S</label>
+
+        </div>
+
+        <div class="row-fluid">
+
+            <label class="span2">Lat(y).</label>
+
+            <span class="span10">
+                <div class="${BASE_CLASS}-dms"
+                     data-dojo-type="app/widgets/gms/gms"
+                     data-dojo-props="locale:'latitude'"
+                     data-dojo-attach-point="latitudeDMSInput"></div>
+
+                <input class="${BASE_CLASS}-degree"
+                       style="width:160px"
+                       data-dojo-type="dijit/form/TextBox"
+                       data-dojo-attach-point="latitudeTextBox"/>
+            </span>
+        </div>
+        <div class="row-fluid">
+
+            <label class="span2">Lon(x).</label>
+
+            <span class="span10">
+                <div class="${BASE_CLASS}-dms"
+                     data-dojo-type="app/widgets/gms/gms"
+                     data-dojo-props="locale:'longitude'"
+                     data-dojo-attach-point="longitudeDMSInput"></div>
+
+                <input class="${BASE_CLASS}-degree"
+                       style="width:160px"
+                       data-dojo-type="dijit/form/TextBox"
+                       data-dojo-attach-point="longitudeTextBox"/>
+            </span>
+        </div>
+    </p>
+
+    <div class="${BASE_CLASS}-advanced-container">
+        <p class="${BASE_CLASS}-coord-system">
+            Sistema de Coordenadas
+            <div class="row-fluid">
+
+                <span class="span1">
+                    <input id="${ID_BASE}Geographic"
+                           name="coordSystem"
+                           checked
+                           value="geographic"
+                           data-dojo-type="dijit/form/RadioButton"
+                           data-dojo-attach-event="onChange:onChangeCoordSystemRadioButtons"
+                           data-dojo-attach-point="geographicCoordSystemRadioButton"/>
+                </span>
+
+                <label for="${ID_BASE}Geographic" class="span5">Geográfica</label>
+
+                <span class="span1">
+                    <input id="${ID_BASE}Projected"
+                           name="coordSystem"
+                           value="projected"
+                           data-dojo-type="dijit/form/RadioButton"
+                           data-dojo-attach-point="projectedCoordSystemRadioButton"/>
+                </span>
+
+                <label for="${ID_BASE}Projected" class="span5">Projetada</label>
+            </div>
+        </p>
+
+        <p class="${BASE_CLASS}-projection-system">
+            Sistema de Projeção
+            <div class="row-fluid">
+                <input id="${ID_BASE}ProjectionSystem"
+                       style="width : 200px;"
+                       data-dojo-type="dijit/form/Select"
+                       data-dojo-attach-event="onChange:onChangeProjectionSystemSelect"
+                       data-dojo-attach-point="projectionSystemSelect" />
+            </div>
+        </p>
+
+        <p class="${BASE_CLASS}-locate-button" data-dojo-attach-point="nodeLocateButton">
+            <button id="${ID_BASE}LocateButton"
+                    data-dojo-attach-point="locateButton">Marcar no mapa</button>
+        </p>
+    </div>
+</div>

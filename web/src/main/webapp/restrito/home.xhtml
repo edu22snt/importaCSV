@@ -1,0 +1,272 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core" 
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:b="http://www.ctis.com.br/bootstrapfaces"
+    xmlns:o="http://omnifaces.org/ui"
+    template="/WEB-INF/templates/template_importasiagas.xhtml">
+
+<ui:define name="conteudo">
+    <div class="row">
+        <div class="col-md-12">
+            <b:pageTitle id="pt" text="#{msg['label.painelgestor']}" />
+        </div>
+    </div>
+    <b:form id="consultaPoco"  formLayout="horizontal" showHint="false">
+        <div class="row">
+            <div class="col-md-4">
+                <b:select id="uf"
+                    label="#{msg['label.filtrarporuf']}"
+                    value="#{importaSiagasMB.ufArgumento}"
+                    disabled="#{credenciais.uf ne null}"
+                    formLayout="horizontal"  inputSize="6 6 6 6" labelSize="6 6 6 6" >
+                    <f:selectItem itemValue="" itemLabel="#{msg['label.selecione']}"/>
+                    <f:selectItems value="#{importaSiagasMB.buscarUFs()}"
+                        var="uf" itemValue="#{uf.sigla}"
+                        itemLabel="#{uf.sigla}"/>
+                    <f:ajax execute="@form"/>
+                </b:select>
+            </div>
+            <div class="col-md-8">
+            </div>
+        </div>
+        <h:panelGroup id="siagasTab" display="block">
+            <ul id="tabelas" class="nav nav-tabs">
+                <li class="active">
+                    <a href="#emAnalise" data-toggle="tab">#{msg['label.statusemanalise']}
+                        (#{importaSiagasMB.registrosEmAnalise.count()})</a>
+                </li>
+                <li class="">
+                    <a href="#retificado" data-toggle="tab">#{msg['label.statusretificado']}
+                        (#{importaSiagasMB.registrosRetificados.count()})</a>
+                </li>
+                <li class="">
+                    <a href="#sincronizado" data-toggle="tab">#{msg['label.statussincronizado']}
+                        (#{importaSiagasMB.registrosSincronizados.count()})</a>
+                </li>
+                <li class="">
+                    <a href="#naoSincronizado" data-toggle="tab">#{msg['label.statusnaosincronizado']}
+                        (#{importaSiagasMB.registrosNaoSincronizados.count()})</a>
+                </li>
+            </ul>
+
+            <div id="siagasTabContent" class="tab-content" >
+                <div class="tab-pane fade active in" id="emAnalise">
+                    <b:crudTable id="crudEAna" value="#{importaSiagasMB.registrosEmAnalise}"
+                        actionForRefresh="#{importaSiagasMB.pesquisarEmAnalise()}"
+                        searchParameter="#{importaSiagasMB.parametro}"
+                        actionForSearch="#{importaSiagasMB.pesquisarEmAnalise()}"
+                        actionForClear="#{importaSiagasMB.limparPesquisaEmAnalise()}"
+                        renderOnSearch="@form"
+                        headerTitle="#{msg['cadastrosiagas.titulo']}"
+                        columnClasses="
+                            an-c1 text-center hidden-xs,
+                            an-c2 text-center,
+                            an-c3 text-center hidden-xs,
+                            an-c4 text-center,
+                            an-c5 text-center"
+                        pageSizes="5 10 15 20 25">
+
+                        <h:column headerClass="text-center hidden-xs">
+                            <h:graphicImage library="img" name="bandeira-#{reg.uf}.png" styleClass="home-flag"/>
+                        </h:column>
+                        <h:column headerClass="text-center">
+                            <f:facet name="header">#{msg['label.numerosiagas']}</f:facet>
+                            #{reg.ponto}
+                        </h:column>
+                        <h:column headerClass="text-center hidden-xs">
+                            <f:facet name="header">#{msg['label.municipio']}</f:facet>
+                            <h:outputText value="#{reg.municipio}"/>
+                        </h:column>
+                        <h:column headerClass="text-center">
+                            <f:facet name="header">#{msg['label.uf']}</f:facet>
+                            <h:outputText value="#{reg.uf}"/>
+                        </h:column>
+                        <h:column headerClass="text-center">
+                            <f:facet name="header">#{msg['label.acoes']}</f:facet>
+
+                            <h:commandLink action="#{importaSiagasMB.visualizarPoco(reg.id)}" 
+                                styleClass="btn btn-default btn-sm" title="#{msg['label.visualizarpoco']}">
+                                <span class="fa fa-eye"></span>
+                            </h:commandLink>
+
+                            <h:commandLink action="#{importaSiagasMB.editarPoco(reg.id)}" 
+                                styleClass="btn btn-default btn-sm" title="#{msg['label.alterarpoco']}">
+                                <span class="fa fa-pencil"></span>
+                            </h:commandLink>
+                        </h:column>
+                    </b:crudTable> 
+                </div>
+
+                <div class="tab-pane fade in" id="retificado">
+                    <b:crudTable id="crudRet" value="#{importaSiagasMB.registrosRetificados}"
+                        actionForRefresh="#{importaSiagasMB.pesquisarRetificados()}"
+                        searchParameter="#{importaSiagasMB.parametro}"
+                        actionForSearch="#{importaSiagasMB.pesquisarRetificados()}"
+                        actionForClear="#{importaSiagasMB.limparPesquisaSincronizados()}"
+                        scriptForNew="@form"
+                        renderOnSearch="@form"
+                        headerTitle="#{msg['cadastrosiagas.titulo']}"
+                        columnClasses="
+                            ret-c1 text-center hidden-xs,
+                            ret-c2 text-center,
+                            ret-c3 text-center hidden-xs,
+                            ret-c4 text-center,
+                            ret-c5 text-center,
+                            ret-c6 text-center,
+                            ret-c7 text-center" 
+                        pageSizes="5 10 15 20 25">
+
+                        <h:column headerClass="text-center hidden-xs">
+                            <h:graphicImage library="img" name="bandeira-#{reg.uf}.png" styleClass="home-flag"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">#{msg['label.numerosiagas']}</f:facet>
+                            #{reg.ponto}
+                        </h:column>
+                        <h:column headerClass="text-center">
+                            <f:facet name="header">#{msg['label.municipio']}</f:facet>
+                            <h:outputText value="#{reg.municipio}"/>
+                        </h:column>
+                        <h:column headerClass="text-center">
+                            <f:facet name="header">#{msg['label.uf']}</f:facet>
+                            <h:outputText value="#{reg.uf}"/>
+                        </h:column>
+                        <h:column headerClass="text-center">
+                            <f:facet name="header">#{sis['sistema.label.cpf']} / #{sis['sistema.label.cnpj']}</f:facet>
+                            <h:outputText value="#{reg.cpfCnpj}"/>
+                        </h:column>
+                        <h:column headerClass="text-center">
+                            <f:facet name="header">#{msg['label.nome']}</f:facet>
+                            <h:outputText value="#{reg.nomeProprietario}"/>
+                        </h:column>
+                        <h:column headerClass="text-center">
+                            <f:facet name="header">#{msg['label.acoes']}</f:facet>
+
+                            <h:commandLink action="#{importaSiagasMB.visualizarPoco(reg.id)}" 
+                                styleClass="btn btn-default btn-sm" title="#{msg['label.visualizarpoco']}">
+                                <span class="fa fa-eye"></span>
+                            </h:commandLink>
+                        </h:column>
+                    </b:crudTable> 
+                </div>
+
+                <div class="tab-pane fade in" id="sincronizado">
+                    <b:crudTable id="crudSinc" value="#{importaSiagasMB.registrosSincronizados}"
+                        actionForRefresh="#{importaSiagasMB.pesquisarSincronizados()}"
+                        searchParameter="#{importaSiagasMB.parametro}"
+                        actionForSearch="#{importaSiagasMB.pesquisarSincronizados()}"
+                        actionForClear="#{importaSiagasMB.limparPesquisaSincronizados()}"
+                        renderOnSearch="@form"
+                        headerTitle="#{msg['cadastrosiagas.titulo']}"
+                        columnClasses="
+                            sinc-c1 text-center hidden-xs,
+                            sinc-c2 text-center,
+                            sinc-c3 text-center hidden-xs,
+                            sinc-c4 text-center,
+                            sinc-c5 text-center,
+                            sinc-c6 text-center,
+                            sinc-c7 text-center"
+                        pageSizes="5 10 15 20 25">
+
+                        <h:column headerClass="text-center hidden-xs">
+                            <h:graphicImage library="img" name="bandeira-#{reg.uf}.png" styleClass="home-flag"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">#{msg['label.numerosiagas']}</f:facet>
+                            #{reg.ponto}
+                        </h:column>
+                        <h:column headerClass="text-center">
+                            <f:facet name="header">#{msg['label.municipio']}</f:facet>
+                            <h:outputText value="#{reg.municipio}"/>
+                        </h:column>
+                        <h:column headerClass="text-center">
+                            <f:facet name="header">#{msg['label.uf']}</f:facet>
+                            <h:outputText value="#{reg.uf}"/>
+                        </h:column>
+                        <h:column headerClass="text-center">
+                            <f:facet name="header">#{sis['sistema.label.cpf']} / #{sis['sistema.label.cnpj']}</f:facet>
+                            <h:outputText value="#{reg.cpfCnpj}"/>
+                        </h:column>
+                        <h:column headerClass="text-center">
+                            <f:facet name="header">#{msg['label.nome']}</f:facet>
+                            <h:outputText value="#{reg.nomeProprietario}"/>
+                        </h:column>
+                        <h:column headerClass="text-center">
+                            <f:facet name="header">#{msg['label.acoes']}</f:facet>
+
+                            <h:commandLink action="#{importaSiagasMB.visualizarPoco(reg.id)}" 
+                                styleClass="btn btn-default btn-sm" title="#{msg['label.visualizarpoco']}">
+                                <span class="fa fa-eye"></span>
+                            </h:commandLink>
+                        </h:column>
+                    </b:crudTable> 
+                </div>
+
+                <div class="tab-pane fade in" id="naoSincronizado">
+                    <b:crudTable id="crudNSinc" value="#{importaSiagasMB.registrosNaoSincronizados}"
+                        actionForRefresh="#{importaSiagasMB.pesquisarNaoSincronizados()}"
+                        searchParameter="#{importaSiagasMB.parametro}"
+                        actionForSearch="#{importaSiagasMB.pesquisarNaoSincronizados()}"
+                        actionForClear="#{importaSiagasMB.limparPesquisaNaoSincronizados()}"
+                        renderOnSearch="@form"
+                        headerTitle="#{msg['cadastrosiagas.titulo']}"
+                        columnClasses="
+                            nsinc-c1 text-center hidden-xs,
+                            nsinc-c2 text-center,
+                            nsinc-c3 text-center hidden-xs,
+                            nsinc-c4 text-center,
+                            nsinc-c5 text-center,
+                            nsinc-c6 text-center,
+                            nsinc-c8 text-center,
+                            nsinc-c7 text-center"
+                        pageSizes="5 10 15 20 25">
+
+                        <h:column headerClass="text-center hidden-xs">
+                            <h:graphicImage library="img" name="bandeira-#{reg.uf}.png" styleClass="home-flag"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">#{msg['label.numerosiagas']}</f:facet>
+                            #{reg.ponto}
+                        </h:column>
+                        <h:column headerClass="text-center">
+                            <f:facet name="header">#{msg['label.municipio']}</f:facet>
+                            <h:outputText value="#{reg.municipio}"/>
+                        </h:column>
+                        <h:column headerClass="text-center">
+                            <f:facet name="header">#{msg['label.uf']}</f:facet>
+                            <h:outputText value="#{reg.uf}"/>
+                        </h:column>
+                        <h:column headerClass="text-center">
+                            <f:facet name="header">#{sis['sistema.label.cpf']} / #{sis['sistema.label.cnpj']}</f:facet>
+                            <h:outputText value="#{reg.cpfCnpj}"/>
+                        </h:column>
+                        <h:column headerClass="text-center">
+                            <f:facet name="header">#{msg['label.nome']}</f:facet>
+                            <h:outputText value="#{reg.nomeProprietario}"/>
+                        </h:column>
+                        <h:column headerClass="text-center">
+                            <f:facet name="header">#{msg['label.codigodoerro']}</f:facet>
+                            <h:outputText value="#{reg.codigoErroNaoSincronizado}"/>
+                        </h:column>
+                        <h:column headerClass="text-center">
+                            <f:facet name="header">#{msg['label.acoes']}</f:facet>
+
+                            <h:commandLink action="#{importaSiagasMB.visualizarPoco(reg.id)}" 
+                                styleClass="btn btn-default btn-sm" title="#{msg['label.visualizarpoco']}">
+                                <span class="fa fa-eye"></span>
+                            </h:commandLink>
+                        </h:column>
+                    </b:crudTable> 
+                </div>
+            </div>
+        </h:panelGroup>
+    </b:form>
+</ui:define>
+
+<ui:define name="body-include">
+    <b:ajaxStatus/>
+</ui:define>
+
+</ui:composition>

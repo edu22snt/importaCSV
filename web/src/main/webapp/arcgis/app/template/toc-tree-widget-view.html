@@ -1,0 +1,96 @@
+<div class="${baseClass}">
+    <style type="text/css">
+        .${baseClass}{
+            position: absolute;
+            top: 65px;
+            left: 20px;
+            z-index: 101;
+        }
+
+        .${baseClass}.loaded .loading {
+            display: none;
+        }
+
+        .${baseClass} .loading{
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 250px;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            background: url("${baseUrl}images/loading.gif") no-repeat center top 35px #fff;
+            opacity: 0.9;
+        }
+        .${baseClass} .loading div{
+            margin-top: 5px;
+            color: #333;
+            font-size: 12px;
+        }
+
+        .${baseClass} .${containerTOC} {
+            background: #fff;
+            color: #444;
+            display: block;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0px 0px 15px #777;
+            transition : 0.5s;
+            left: 40px;
+            position : absolute;
+        }
+        .${baseClass} .${containerTOC}:hover{
+            background-color: #fff;
+            transition : 0.5s;
+        }
+        .${baseClass} .${containerTOC} .${tree} {
+            min-height: 120px;
+            max-height: 250px;
+            padding: 10px;
+            overflow: hidden;
+            overflow-x: hidden;
+        }
+        .${baseClass} .${containerTOC}:hover .${tree} {
+            overflow-y: auto;
+        }
+        .${baseClass} .${containerTOC} .${tree} .agsjsTOCServiceLayer {
+            font-weight: normal;
+        }
+        .${baseClass} .${btnOpen} {
+            width: 30px;
+            height: 32px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #fff;
+            color: #777;
+            border-radius: 6px;
+            border: 2px solid #777;
+            cursor: pointer;
+            font-size: 1.2em !important;
+            z-index: 101;
+        }
+        .${baseClass} .${btnOpen}:hover{
+            background-position: 0px -32px !important;
+        }
+
+        .fa-camadas{
+            background-image: url("${baseUrl}images/icones/icone-camadas.png");
+            background-repeat: repeat;
+        }
+    </style>
+
+
+    <div data-dojo-attach-point="btnOpen" class="fa fa-camadas ${btnOpen}"></div>
+    <div data-dojo-attach-point="containerTOC" class="${containerTOC}">
+        <div class="loading">
+            <div>carregando camadas...</div>
+        </div>
+        <div class="my-title">Camadas</div>
+        <!-- TREE -->
+        <div data-dojo-attach-point="tree" class="${tree}"></div>
+        <!-- *** -->
+    </div>
+</div>

@@ -1,0 +1,548 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core" 
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:b="http://www.ctis.com.br/bootstrapfaces"
+    xmlns:o="http://omnifaces.org/ui"
+    template="/WEB-INF/templates/template_importasiagas.xhtml">
+
+<ui:define name="conteudo">
+    <a id="top"> </a>
+    <b:form id="cadastro" formLayout="horizontal" showHint="false">
+
+    <h:outputScript library="scripts" name="componentes.js"/>
+
+        <b:pageTitle id="pta" text="#{msg['label.painel.editarpoco']}" rendered="#{importaSiagasMB.opAlterar eq true}"/>
+        <b:pageTitle id="ptv" text="#{msg['label.painel.visualizarpoco']}" rendered="#{importaSiagasMB.opAlterar eq false}"/>
+
+        <b:fieldset id="proprietario" legend="#{msg['label.painel.informacoespoco']}">
+
+            <b:pageSection text="#{msg['label.dadosproprietario']}"/>
+
+            <b:selectOneRadio id="tipo" label="#{sis['sistema.label.tipo']}"
+                value="#{autenticarMB.tipoPessoa}" formLayout="horizontal" inputSize="12 7 4 3" labelSize="12 5 3 3">
+
+                <f:selectItem itemLabel="#{sis['sistema.label.cpf']}" itemValue="0"/>
+                <f:selectItem itemLabel="#{sis['sistema.label.cnpj']}" itemValue="1"/>
+                <f:ajax event="change" render="@form"/>
+            </b:selectOneRadio>
+
+            <h:panelGroup id="pgIdentificador" layout="block">
+                <b:inputTextCNPJ id="cnpj" 
+                    label="#{sis['sistema.label.cnpj']}" 
+                    value="#{importaSiagasMB.poco.cpfCnpj}"
+                    required="true" 
+                    rendered="#{autenticarMB.tipoPessoa eq 1}" 
+                    formLayout="horizontal"
+                    maxlength="14"
+                    inputSize="12 7 4 3" labelSize="12 5 3 3"
+                    disabled="#{importaSiagasMB.opAlterar eq false}">
+                    <f:facet name="appendBtn">
+                        <h:commandLink id="btCnpj" action="#{importaSiagasMB.pesquisarCPFCNPJ()}"
+                            class="btn btn-default" disabled="#{importaSiagasMB.opAlterar eq false}">
+                            <i class="fa fa-search"></i>
+                            <f:ajax execute=":cadastro:proprietario:cnpj"
+                                 render=":cadastro:proprietario:pnNome :cadastro:proprietario:pnCep :cadastro:proprietario:pnEndereco :cadastro:proprietario:pnBairro
+                                         :cadastro:proprietario:pnUf :cadastro:proprietario:pnMunicipio :cadastro:proprietario:pnTelefone
+                                         :cadastro:proprietario:pnFax :cadastro:proprietario:pnCelular"/>
+                        </h:commandLink>
+                    </f:facet>
+                </b:inputTextCNPJ>
+
+                <b:inputTextCPF id="cpf" 
+                    label="#{sis['sistema.label.cpf']}"
+                    value="#{importaSiagasMB.poco.cpfCnpj}"
+                    required="true" 
+                    rendered="#{autenticarMB.tipoPessoa eq 0}"
+                    formLayout="horizontal"
+                    maxlength="11"
+                    inputSize="12 7 4 3" labelSize="12 5 3 3"
+                    disabled="#{importaSiagasMB.opAlterar eq false}">
+                    <f:facet name="appendBtn">
+                        <h:commandLink id="btCpf" class="btn btn-default"
+                            action="#{importaSiagasMB.pesquisarCPFCNPJ()}"
+                            disabled="#{importaSiagasMB.opAlterar eq false}">
+                            <i class="fa fa-search"></i>
+                            <f:ajax execute=":cadastro:proprietario:cpf"
+                                 render=":cadastro:proprietario:pnNome :cadastro:proprietario:pnCep :cadastro:proprietario:pnEndereco :cadastro:proprietario:pnBairro
+                                         :cadastro:proprietario:pnUf :cadastro:proprietario:pnMunicipio :cadastro:proprietario:pnTelefone
+                                         :cadastro:proprietario:pnFax :cadastro:proprietario:pnCelular"/>
+                        </h:commandLink>
+                    </f:facet>
+                </b:inputTextCPF>
+            </h:panelGroup>
+
+            <h:panelGroup id="pnNome">
+                <b:inputText id="txtNome" value="#{importaSiagasMB.poco.nomeProprietario}"
+                    label="#{msg['label.nome']}" formLayout="horizontal" inputSize="12 7 9 9" labelSize="12 5 3 3"
+                    required="true" maxlength="150"
+                    disabled="#{importaSiagasMB.opAlterar eq false}"/>
+            </h:panelGroup>
+
+            <h:panelGroup id="pnCep">
+                <b:inputTextCEP id="cep" value="#{importaSiagasMB.poco.cepProprietario}" 
+                    label="#{msg['label.cep']}" formLayout="horizontal" inputSize="12 7 4 3" labelSize="12 5 3 3"
+                    disabled="#{importaSiagasMB.opAlterar eq false}">
+                    <f:facet name="appendBtn">
+                        <h:commandLink id="btCep" class="btn btn-default"
+                            action="#{importaSiagasMB.buscarCEP()}"
+                            disabled="#{importaSiagasMB.opAlterar eq false}">
+                            <i class="fa fa-search"></i>
+                            <f:ajax execute=":cadastro:proprietario:cep"
+                                 render=":cadastro:proprietario:pnEndereco :cadastro:proprietario:pnBairro :cadastro:proprietario:pnUf :cadastro:proprietario:pnMunicipio"/>
+                         </h:commandLink>
+                    </f:facet>
+                </b:inputTextCEP>
+            </h:panelGroup>
+
+            <h:panelGroup id="pnEndereco">
+                <b:inputText id="endereco"
+                    value="#{importaSiagasMB.poco.enderecoProprietario}"
+                    maxlength="140"
+                    label="#{msg['label.endereco']}"
+                    formLayout="horizontal"
+                    inputSize="12 7 9 9"
+                    labelSize="12 5 3 3"
+                    disabled="#{importaSiagasMB.opAlterar eq false}"/>
+            </h:panelGroup>
+
+            <h:panelGroup id="pnBairro">
+                <b:inputText id="txtBairro"
+                    value="#{importaSiagasMB.poco.bairroProprietario}"
+                    maxlength="100"
+                    label="#{msg['label.bairro']}"
+                    formLayout="horizontal"
+                    inputSize="12 7 6 6"
+                    labelSize="12 5 3 3"
+                    disabled="#{importaSiagasMB.opAlterar eq false}"/>
+            </h:panelGroup>
+
+            <h:panelGroup id="pnUf">
+                <b:select id="uf"
+                    label="#{msg['label.uf']}"
+                    formLayout="horizontal"
+                    inputSize="12 7 4 3"
+                    labelSize="12 5 3 3"
+                    required="true"
+                    value="#{importaSiagasMB.ufEndereco}"
+                    disabled="#{importaSiagasMB.opAlterar eq false}">
+                    <f:selectItem itemValue="" itemLabel="#{msg['label.selecione']}"/>
+                    <f:selectItems value="#{importaSiagasMB.buscarUFs()}"
+                        var="uf"
+                        itemValue="#{uf.id}"
+                        itemLabel="#{uf.sigla}"/>
+                    <f:ajax event="change"
+                        execute=":cadastro:proprietario:uf"
+                        render=":cadastro:proprietario:pnMunicipio"
+                        listener="#{importaSiagasMB.buscarMunicipiosProprietario()}"/>
+                </b:select>
+            </h:panelGroup>
+
+            <h:panelGroup id="pnMunicipio">
+                <b:select id="municipio"
+                    label="#{msg['label.municipio']}"
+                    required="true"
+                    value="#{importaSiagasMB.municipioProprietario.ibgeCompleto}"
+                    formLayout="horizontal"
+                    inputSize="12 7 4 4"
+                    labelSize="12 5 3 3"
+                    disabled="#{importaSiagasMB.opAlterar eq false}">
+                    <f:selectItem itemValue=""
+                        itemLabel="#{msg['label.selecione']}"/>
+                    <f:selectItems value="#{importaSiagasMB.listaMunicipiosProprietario}"
+                        var="mun"
+                        itemValue="#{mun.codigoIBGE}"
+                        itemLabel="#{mun.nome}"/>
+                </b:select>
+            </h:panelGroup>
+
+            <h:panelGroup id="pnTelefone">
+                <b:inputTextPhone id="telefone"
+                    value="#{importaSiagasMB.poco.telefoneProprietario}"
+                    label="#{msg['label.telefone']}"
+                    formLayout="horizontal"
+                    inputSize="12 7 3 2"
+                    labelSize="12 5 3 3"
+                    maxlength="15"
+                    disabled="#{importaSiagasMB.opAlterar eq false}"/>
+            </h:panelGroup>
+
+            <h:panelGroup id="pnFax">
+                <b:inputTextPhone id="fax"
+                    value="#{importaSiagasMB.poco.faxProprietario}"
+                    label="#{msg['label.telefonefax']}"
+                    formLayout="horizontal"
+                    inputSize="12 7 3 2"
+                    labelSize="12 5 3 3"
+                    maxlength="15"
+                    disabled="#{importaSiagasMB.opAlterar eq false}"/>
+            </h:panelGroup>
+
+            <h:panelGroup id="pnCelular">
+                <b:inputTextPhone id="celular"
+                    value="#{importaSiagasMB.poco.celularProprietario}"
+                    label="#{msg['label.telefonecelular']}"
+                    formLayout="horizontal"
+                    inputSize="12 7 3 2"
+                    labelSize="12 5 3 3"
+                    maxlength="15"
+                    disabled="#{importaSiagasMB.opAlterar eq false}"/>
+            </h:panelGroup>
+
+            <b:pageSection text="#{msg['label.dadosregularizacao']}"/>
+
+            <h:panelGroup id="pnFinalidade">
+                <b:select id="finalidade"
+                    label="#{msg['label.finalidade']}"
+                    formLayout="horizontal"
+                    inputSize="12 7 4 4"
+                    labelSize="12 5 3 3"
+                    required="true"
+                    value="#{importaSiagasMB.poco.tipoFinalidade}"
+                    disabled="#{importaSiagasMB.opAlterar eq false}">
+                    <f:selectItem itemValue=""
+                        itemLabel="#{msg['label.selecione']}"/>
+                    <f:selectItems value="#{importaSiagasMB.listarFinalidade()}"
+                        var="finalidade"
+                        itemValue="#{finalidade}"
+                        itemLabel="#{finalidade.descricao}"/>
+                        <b:entityConverter />
+                        <f:ajax event="change" 
+                                execute=":cadastro:proprietario:finalidade"
+                                render=":cadastro:proprietario:paineis2"/>
+                </b:select>
+            </h:panelGroup>
+
+            <h:panelGroup id="paineis2" layout="block">
+                <ui:fragment rendered="#{importaSiagasMB.poco.tipoFinalidade.id eq 5}">
+
+                    <h:panelGroup id="pnSistemaIrrigacao">
+                        <b:select id="sistemaIrrigacao"
+                            label="#{msg['label.sistemaIrrigacao']}"
+                            formLayout="horizontal"
+                            inputSize="12 7 4 4"
+                            labelSize="12 5 3 3"
+                            required="true"
+                            value="#{importaSiagasMB.poco.tipoSistemaIrrigacao}"
+                            disabled="#{importaSiagasMB.opAlterar eq false}">
+                            <f:selectItem itemValue=""
+                                itemLabel="#{msg['label.selecione']}"/>
+                            <f:selectItems value="#{importaSiagasMB.listarSistemaIrrigacao()}"
+                                var="sistemaIrrigacao"
+                                itemValue="#{sistemaIrrigacao}"
+                                itemLabel="#{sistemaIrrigacao.descricao}"/>
+                                <b:entityConverter />
+                        </b:select>
+                    </h:panelGroup>
+
+                    <h:panelGroup id="pnCultura">
+                        <b:select id="cultura"
+                            label="#{msg['label.cultura']}"
+                            formLayout="horizontal"
+                            inputSize="12 7 4 4"
+                            labelSize="12 5 3 3"
+                            required="true"
+                            value="#{importaSiagasMB.poco.tipoCultura}"
+                            disabled="#{importaSiagasMB.opAlterar eq false}">
+                            <f:selectItem itemValue=""
+                                itemLabel="#{msg['label.selecione']}"/>
+                            <f:selectItems value="#{importaSiagasMB.listarCultura()}"
+                                var="cultura"
+                                itemValue="#{cultura}"
+                                itemLabel="#{cultura.descricao}"/>
+                                <b:entityConverter />
+                        </b:select>
+                    </h:panelGroup>
+
+                    <h:panelGroup id="pnAreaIrrigada">
+                        <b:inputTextNumber id="txtAreaIrrigada"
+                            value="#{importaSiagasMB.poco.areaIrrigada}"
+                            label="#{msg['label.areairrigada']}"
+                            formLayout="horizontal"
+                            inputSize="12 7 2 2"
+                            labelSize="12 5 3 3"
+                            required="true"
+                            maxlength="100"
+                            disabled="#{importaSiagasMB.opAlterar eq false}"/>
+                    </h:panelGroup>
+
+                </ui:fragment>
+            </h:panelGroup>
+
+            <h:panelGroup id="pnTipoAtoAdm">
+                <b:select id="tipoAtoAdm"
+                    label="#{msg['label.tipoatoadm']}"
+                    formLayout="horizontal"
+                    inputSize="12 7 4 4"
+                    labelSize="12 5 3 3"
+                    required="true"
+                    value="#{importaSiagasMB.poco.tipoAto}"
+                    disabled="#{importaSiagasMB.opAlterar eq false}">
+                    <f:selectItem itemValue=""
+                        itemLabel="#{msg['label.selecione']}"/>
+                    <f:selectItems value="#{importaSiagasMB.listarAto()}"
+                        var="tipoAto"
+                        itemValue="#{tipoAto}"
+                        itemLabel="#{tipoAto.descricao}"/>
+                        <b:entityConverter />
+                </b:select>
+            </h:panelGroup>
+
+            <h:panelGroup id="pnSituacaoRegularizacao">
+                <b:select id="situacaoRegularizacao"
+                    label="#{msg['label.situacaoRegularizacao']}"
+                    formLayout="horizontal"
+                    inputSize="12 7 2 2"
+                    labelSize="12 5 3 3"
+                    required="true"
+                    value="#{importaSiagasMB.poco.tipoSituacaoAto}"
+                    disabled="#{importaSiagasMB.opAlterar eq false}">
+                    <f:selectItem itemValue=""
+                        itemLabel="#{msg['label.selecione']}"/>
+                    <f:selectItems value="#{importaSiagasMB.listarSituacaoAto()}"
+                        var="situacaoOutorga"
+                        itemValue="#{situacaoOutorga}"
+                        itemLabel="#{situacaoOutorga.descricao}"/>
+                        <b:entityConverter />
+                </b:select>
+            </h:panelGroup>
+
+            <h:panelGroup id="pnSituacaoInterferencia">
+                <b:select id="situacaoInterferencia"
+                    label="#{msg['label.situacaoInterferencia']}"
+                    formLayout="horizontal"
+                    inputSize="12 7 2 2"
+                    labelSize="12 5 3 3"
+                    required="true"
+                    value="#{importaSiagasMB.poco.tipoSituacaoInterferencia}"
+                    disabled="#{importaSiagasMB.opAlterar eq false}">
+                    <f:selectItem itemValue=""
+                        itemLabel="#{msg['label.selecione']}"/>
+                    <f:selectItems value="#{importaSiagasMB.listarSituacaoInterferencia()}"
+                        var="situacaoInt"
+                        itemValue="#{situacaoInt}"
+                        itemLabel="#{situacaoInt.descricao}"/>
+                        <b:entityConverter />
+                </b:select>
+            </h:panelGroup>
+
+            <h:panelGroup id="pnTipoAto">
+                <b:inputText id="txtTipoAto"
+                    value="#{importaSiagasMB.poco.descricaoAto}"
+                    label="#{msg['label.atoadmpublicacao']}"
+                    formLayout="horizontal"
+                    inputSize="12 7 2 2"
+                    labelSize="12 5 3 3"
+                    required="true"
+                    maxlength="100"
+                    disabled="#{importaSiagasMB.opAlterar eq false}"/>
+            </h:panelGroup>
+
+            <h:panelGroup id="pnNumeroAto">
+                <b:inputTextMask id="txtNumeroAto"
+                    value="#{importaSiagasMB.poco.numeroAto}"
+                    label="#{msg['label.numeroato']}"
+                    formLayout="horizontal"
+                    inputSize="12 7 2 2"
+                    labelSize="12 5 3 3"
+                    required="true"
+                    maxlength="10"
+                    mask="9999/9999"
+                    placeholder="____/____"
+                    disabled="#{importaSiagasMB.opAlterar eq false}"/>
+            </h:panelGroup>
+
+            <h:panelGroup id="pnDataInicio">
+                <b:inputTextDate id="dtInicio"
+                    value="#{importaSiagasMB.poco.dataInicioAutorizacao}"
+                    label="#{msg['label.datainicio']}"
+                    formLayout="horizontal"
+                    inputSize="12 7 2 2"
+                    labelSize="12 5 3 3"
+                    required="true"
+                    title="#{msg['tooltip.datainicioautorizacao']}"
+                    tooltipPosition="top"
+                    disabled="#{importaSiagasMB.opAlterar eq false}"/>
+            </h:panelGroup>
+
+            <h:panelGroup id="pnDataFim">
+                <b:inputTextDate id="dtFim"
+                    value="#{importaSiagasMB.poco.dataFinalAutorizacao}"
+                    label="#{msg['label.datafim']}"
+                    formLayout="horizontal"
+                    inputSize="12 7 2 2"
+                    labelSize="12 5 3 3"
+                    required="true"
+                    title="#{msg['tooltip.datafimautorizacao']}"
+                    tooltipPosition="top"
+                    disabled="#{importaSiagasMB.opAlterar eq false}"/>
+            </h:panelGroup>
+
+            <b:pageSection text="#{msg['label.dadosoperacao']}"/>
+
+            <h:panelGroup id="pnVazaoMedia">
+                <b:inputTextNumber id="txtVazaoMedia"
+                    value="#{importaSiagasMB.poco.vazaoMedia}"
+                    label="#{msg['label.vazaomedia']}"
+                    formLayout="horizontal"
+                    inputSize="12 7 2 2"
+                    labelSize="12 5 3 3"
+                    required="true"
+                    maxlength="17"
+                    title="#{msg['tooltip.vazaomedia']}"
+                    tooltipPosition="top"
+                    disabled="#{importaSiagasMB.opAlterar eq false}"/>
+            </h:panelGroup>
+
+            <h:panelGroup id="pnVazaoHoraDia">
+                <td>
+                    <b:inputTextNumber id="txtVazaoHoraDia"
+                        value="#{importaSiagasMB.poco.tempoHoraDia}"
+                        label="#{msg['label.tempohoradia']}"
+                        formLayout="horizontal"
+                        inputSize="12 7 1 1"
+                        labelSize="12 5 3 3"
+                        required="true"
+                        maxlength="2"
+                        styleClass="calcula-volume"
+                        minFractionDigits="0"
+                        onblur="verificaValorHoraDia()"
+                        disabled="#{importaSiagasMB.opAlterar eq false}"/>
+                </td>
+            </h:panelGroup>
+
+            <h:panelGroup id="pnVazaoDiaMes">
+                <td>
+                    <b:inputTextNumber id="txtVazaoDiaMes"
+                        value="#{importaSiagasMB.poco.tempoDiaMes}"
+                        label="#{msg['label.tempodiames']}"
+                        formLayout="horizontal"
+                        inputSize="12 7 1 1"
+                        labelSize="12 5 3 3"
+                        required="true"
+                        maxlength="2"
+                        styleClass="calcula-volume"
+                        minFractionDigits="0"
+                        onblur="verificaValorDiaMes()"
+                        disabled="#{importaSiagasMB.opAlterar eq false}"/>
+                </td>
+            </h:panelGroup>
+
+            <b:pageSection text="#{msg['label.dadosidentificacao']}"/>
+
+            <b:inputText id="numSiagas"
+                value="#{importaSiagasMB.poco.ponto}"
+                maxlength="11"
+                label="#{msg['label.numerosiagas']}"
+                formLayout="horizontal"
+                inputSize="12 7 4 2"
+                labelSize="12 5 3 3"
+                readonly="true"/>
+
+            <b:inputText id="latitude"
+                value="#{importaSiagasMB.poco.latitude}"
+                readonly="true"
+                maxlength="10"
+                label="#{msg['label.latitude']}"
+                formLayout="horizontal"
+                inputSize="12 7 4 2"
+                labelSize="12 5 3 3" />
+
+            <b:inputText id="longitude"
+                value="#{importaSiagasMB.poco.longitude}"
+                readonly="true"
+                maxlength="10"
+                label="#{msg['label.longitude']}"
+                formLayout="horizontal"
+                inputSize="12 7 4 2"
+                labelSize="12 5 3 3" />
+
+            <b:inputText id="municipioUtme"
+                value="#{importaSiagasMB.poco.utme}"
+                readonly="true"
+                maxlength="10"
+                label="#{msg['label.utme']}"
+                formLayout="horizontal"
+                inputSize="12 7 4 2"
+                labelSize="12 5 3 3" />
+
+            <b:inputText id="municipioUtmn"
+                value="#{importaSiagasMB.poco.utmn}"
+                readonly="true"
+                maxlength="10"
+                label="#{msg['label.utmn']}"
+                formLayout="horizontal"
+                inputSize="12 7 4 2"
+                labelSize="12 5 3 3" />
+
+            <b:inputText id="ufPoco"
+                value="#{importaSiagasMB.poco.uf}"
+                readonly="true"
+                maxlength="2"
+                label="#{msg['label.uf']}"
+                formLayout="horizontal"
+                inputSize="12 7 2 1"
+                labelSize="12 5 3 3" />
+
+            <b:inputText id="municipioPoco"
+                value="#{importaSiagasMB.poco.municipio}"
+                readonly="true"
+                maxlength="204"
+                label="#{msg['label.municipio']}"
+                formLayout="horizontal"
+                inputSize="12 7 6 6"
+                labelSize="12 5 3 3" />
+
+            <f:facet name="footer">
+                <h:panelGroup layout="block">
+                    <a href="#top" class="btn btn-default">#{msg['label.botao.topo']}</a>
+                    <h:commandLink action="#{importaSiagasMB.cancelar()}"
+                        value="#{msg['label.botao.voltar']}"
+                        styleClass="btn btn-primary pull-right"
+                        rendered="#{importaSiagasMB.opAlterar ne true}"/>
+
+                    <ui:fragment rendered="#{importaSiagasMB.opAlterar eq true}">
+                        <h:commandLink action="#{importaSiagasMB.salvar()}"
+                            value="#{msg['label.botao.salvar']}"
+                            styleClass="btn btn-primary  pull-right"
+                            rendered="#{importaSiagasMB.opAlterar ne false}"/>
+
+                        <a href="#" class="btn btn-default pull-right"
+                            onclick="$('#confirmacancelamento').modal('show');">
+                            <i class="fa fa-arrow-left"></i> #{msg['label.botao.cancelar']}
+                        </a>
+                    </ui:fragment>
+                </h:panelGroup>
+            </f:facet>
+        </b:fieldset>
+
+
+        <b:dialog id="confirmacancelamento" jsId="confirmacancelamento"
+            title="#{msg['confirmacancelamento.titulo']}"
+            message="#{msg['confirmacancelamento.mensagem']}">
+            <f:facet name="footer">
+                <h:commandLink id="btCancelar" 
+                    action="#{importaSiagasMB.cancelar()}"
+                    immediate="true"
+                    value="#{msg['label.botao.sim']}" 
+                    styleClass="btn btn-primary" />
+                <a href="#" class="btn btn-default"
+                    onclick="$('#confirmacancelamento').modal('hide');">
+                    #{msg['label.botao.nao']} 
+                </a>
+            </f:facet>
+        </b:dialog>
+
+    </b:form>
+</ui:define>
+
+<ui:define name="body-include">
+    <b:ajaxStatus/>
+</ui:define>
+
+<ui:define name="scripts-include">
+    <h:outputScript library="scripts" name="componentes.js" />
+</ui:define>
+
+</ui:composition>

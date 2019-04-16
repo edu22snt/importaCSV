@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>br.gov.ana</groupId>
+    <artifactId>ImportaSIAGAS</artifactId>
+    <version>2.2.1.528</version>
+    <packaging>pom</packaging>
+
+    <parent>
+        <groupId>br.gov.ana.poms</groupId>
+        <artifactId>weblogic</artifactId>
+        <version>12.1.1.5</version>
+    </parent>
+
+	<modules>
+        <module>cliente</module>
+        <module>negocio</module>
+        <module>web</module>
+        <module>ear</module>
+    </modules>
+
+    <name>Importa SIAGAS</name>
+
+    <developers>
+        <developer>
+            <id>eduardo.monteiro</id>
+            <name>Eduardo Monteiro de Andrade</name>
+            <email>eduardo.monteiro@ctis.com.br</email>
+            <organization>CTIS</organization>
+            <organizationUrl>http://www.ctis.com.br</organizationUrl>
+        </developer>
+    </developers>
+
+	<properties>
+        <scm.baseurl>https://gitlab.apoio.fsw.ctis.com.br/grupo-ana/importa-siagas.git</scm.baseurl>
+        <weblogic.name>IMPORTA_SIAGAS</weblogic.name>
+        <weblogic.user>anderson.osorio</weblogic.user>
+        <weblogic.password>|YdshWoku#99G</weblogic.password>
+    </properties>
+
+    <scm>
+        <url>${scm.baseurl}</url>
+        <connection>scm:git:${scm.baseurl}</connection>
+        <developerConnection>scm:git:${scm.baseurl}</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+	<dependencies>
+        <dependency>
+            <groupId>br.com.ctis</groupId>
+            <artifactId>jee6-framework</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>wsfacade</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>br.com.ctis</groupId>
+                <artifactId>jee6-framework</artifactId>
+                <version>3.1.0.4</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>wsfacade</artifactId>
+                <version>3.0.0.10</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>br.com.ctis</groupId>
+                        <artifactId>jee6-framework</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>br.com.ctis</groupId>
+                <artifactId>bootstrapfaces</artifactId>
+                <version>3.1.0.7</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>br.com.ctis</groupId>
+                        <artifactId>jee6-framework</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <configuration>
+                        <failOnError>false</failOnError>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>

@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:h="http://java.sun.com/jsf/html" 
+    xmlns:f="http://java.sun.com/jsf/core" 
+    xmlns:ui="http://java.sun.com/jsf/facelets" 
+    xmlns:o="http://omnifaces.org/ui"
+    xmlns:b="http://www.ctis.com.br/bootstrapfaces"
+    template="/layouts/template_default.xhtml">
+
+<!-- <ui:define name="head-include"/> -->
+<!-- <ui:define name="body-include"/> -->
+<!-- <ui:define name="scripts-include"/> -->
+
+<!-- <ui:define name="nome-sistema"/> -->
+<!-- <ui:define name="sigla-versao-sistema"/> -->
+<ui:define name="manual-sistema"/>
+<!-- <ui:define name="acessibilidade"/> -->
+<ui:define name="barra-idiomas"/>
+<!-- <ui:define name="logout"/> -->
+<!-- <ui:define name="menu-lateral"/> -->
+
+<ui:define name="head-include">
+    <h:outputStylesheet library="styles" name="importasiagas-styles.css"/>
+    <o:importConstants type="br.gov.ana.importasiagas.permissoes.Permissoes" />
+</ui:define>
+
+<ui:define name="menu-lateral">
+
+    <b:menuLateral id="menuLateral">
+
+        <b:menuProfile id="menuProfile" name="#{credenciais.nome}" role="#{credenciais.perfilAcesso}">
+            <b:menuItem text="#{msg['label.alterarsenha']}" action="#{alterarSenhaMB.init()}" icon=""/>
+        </b:menuProfile>
+
+        <b:menuSection id="menuSection" text="#{sis['sistema.label.navegacao']}">
+
+            <b:menuGroup id="nGerenciar" text="#{msg['cadastrosiagas.titulo']}" icon="i i-stack">
+                <b:menuItem id="iPainelGestor" text="#{msg['label.painelgestor']}" action="#{importaSiagasMB.init()}"/>
+                <ui:fragment rendered="#{credenciais.uf eq null}">
+                    <b:menuItem id="iCarga" text="#{msg['label.cargapoco']}" action="#{importaPlanilhaMB.init()}"/>
+                </ui:fragment>
+            </b:menuGroup>
+            
+            <b:menuGroup id="nOutrosSistemas" text="#{msg['label.outrossistemas']}" icon="i i-stack">
+                <li>
+                    <a href="http://www.snirh.gov.br/SAS/" target="_blank" class="auto">
+                        <i class="i i-dot"></i>
+                        <span>#{msg['label.sas']}</span>
+                    </a>
+                </li>
+            </b:menuGroup>
+
+        </b:menuSection>
+
+    </b:menuLateral>
+
+</ui:define>
+
+</ui:composition>
+

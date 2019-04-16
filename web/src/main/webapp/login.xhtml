@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:h="http://java.sun.com/jsf/html" 
+    xmlns:f="http://java.sun.com/jsf/core" 
+    xmlns:ui="http://java.sun.com/jsf/facelets" 
+    xmlns:b="http://www.ctis.com.br/bootstrapfaces"
+    template="/WEB-INF/templates/template_importasiagas_externo.xhtml">
+
+<ui:define name="logo">
+    <h:graphicImage library="img" name="logo-lg.png" />
+</ui:define>
+
+<ui:define name="conteudo">
+    <br/>
+    <b:form id="login" showHint="false">
+
+        <b:fieldset legend="#{msg['sistema.login.controledeacesso']}" theme="default">
+
+            <b:inputTextCPF id="cpf"
+                label="#{sis['sistema.label.cpf']}"
+                value="#{credenciais.identificador}" required="true"/>
+
+            <b:inputSecret id="senha" value="#{autenticarMB.senha}" 
+                label="#{sis['sistema.label.senha']}"
+                required="true" title="#{sis['sistema.login.title.senha']}" 
+                placeholder="#{sis['sistema.login.title.senha']}">
+                <f:facet name="append">
+                    <i class="fa fa-lock"></i>
+                </f:facet>
+            </b:inputSecret>
+    
+            <f:facet name="extraFooter">
+                <h:commandButton action="#{autenticarMB.autenticar()}" 
+                    value="#{msg['label.botao.entrar']}" 
+                    styleClass="btn btn-lg btn-primary btn-darken btn-block"
+                    onclick="$('.loading').addClass('active')"/>
+            </f:facet>
+            <f:facet name="footer">
+                 <h:commandLink action="/reenviar_senha.jsf" immediate="true">
+                    <i class="fa fa-question-circle"></i> #{msg['sistema.login.esqueceusenha']} 
+                </h:commandLink>
+            </f:facet>
+        </b:fieldset>
+
+     </b:form>
+
+</ui:define>
+
+<ui:define name="body-include" >
+    <b:ajaxStatus/>
+</ui:define>
+
+</ui:composition>

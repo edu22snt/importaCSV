@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core" 
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:b="http://www.ctis.com.br/bootstrapfaces"
+    xmlns:o="http://omnifaces.org/ui"
+    xmlns:p="http://primefaces.org/ui"
+    template="/WEB-INF/templates/template_importasiagas.xhtml">
+
+<ui:define name="conteudo">
+
+    <b:pageTitle id="ptImportacaoArquivo" text="#{msg['label.cargapoco']}"/>
+    
+    <b:form id="cadastro" formLayout="horizontal" showHint="false" enctype="multipart/form-data">
+
+        <b:fieldset id="fsPlanilha" legend="#{msg['label.importacaoviaarquivo']}">
+            <p>#{msg['cargadados.instrucaoimportacao']}</p>
+            <b:formControl id="selecionarplanilha" for="fup"
+                label="#{msg['label.planilhaaserenviada']}" required="true"
+                hint="#{msg['cargadados.planilhainstrucao']}"
+                formLayout="horizontal"  labelSize="2" inputSize="10">
+
+                <p:fileUpload id="fup" mode="simple" required="true"
+                    value="#{importaPlanilhaMB.arquivo}"
+                    styleClass="form-control-input csvOnlyMax10MB"/>
+                <script>
+                    $("input[type=file].csvOnlyMax10MB").attr("accept", "text/csv").on("change", function() {
+                        var max = 30 * 1024 * 1024;
+                        if (this.files &amp;&amp; this.files[0].size > max) {
+                            alert("#{msg['cargadados.erro.tamanhoarquivo']}");
+                            this.value = null;
+                        }
+                    });
+                </script>
+            </b:formControl>
+
+            <div class="row form-actions"> 
+                <div class="col-md-10 col-md-offset-2">
+                    <h:commandLink id="btEnviar"
+                        action="#{importaPlanilhaMB.lerArquivoCSV}"
+                        value="#{msg['label.botao.processarimportacao']}"
+                        onclick="$('.loading').addClass('active')"
+                        styleClass="btn btn-primary"/>
+                </div>
+            </div>
+
+        </b:fieldset>
+
+        <b:fieldset id="fsInfoImport" legend="#{msg['cargadados.informacaoimportacao']}">
+
+            <ui:fragment rendered="#{importaPlanilhaMB.registros.size() eq 0}">
+                #{sis['sistema.erro.nenhumregistroencontrado']}
+            </ui:fragment>
+
+            <ui:fragment rendered="#{importaPlanilhaMB.registros.size() ne 0}">
+                <h:panelGroup id="pnCargas" layout="block" styleClass="table-responsive">
+                    <h:dataTable id="tableHistorico"
+                        var="r" value="#{importaPlanilhaMB.registros}"
+                        columnClasses="tableplanilha-dataenvio,tableplanilha-registroslidos,tableplanilha-registrosimportados,tableplanilha-log"
+                        headerClass="tableplanilha-header" 
+                        styleClass="table table-striped b-t b-light table-bordered">
+    
+                        <h:column> 
+                            <f:facet name="header">#{msg['label.dataenvio']}</f:facet>
+                            <h:outputText value="#{r.dataEnvio}">
+                                <f:convertDateTime dateStyle="medium" locale="#{controleViewMB.locale}"/>
+                            </h:outputText>
+                        </h:column>
+                        <h:column> 
+                            <f:facet name="header">#{msg['label.registroslidos']}</f:facet>
+                            #{r.totalRegistrosLidos}
+                        </h:column>
+                        <h:column> 
+                            <f:facet name="header">#{msg['label.registrosImportados']}</f:facet>
+                            #{r.totalRegistrosImportados}
+                        </h:column>
+                        <h:column> 
+                            <f:facet name="header">
+                                <i class="fa fa-download"></i>
+                                #{msg['label.logprocessamento']}
+                            </f:facet>
+                            <h:commandButton actionListener="#{importaPlanilhaMB.downloadLog(r)}"
+                                value="#{msg['label.download']}"
+                                title="#{msg['cargadados.downloadlog.hint']}" 
+                                styleClass="btn btn-xs btn-default"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+            </ui:fragment>
+            
+        </b:fieldset>
+
+        <div class="row form-actions" style="padding-top: 1%; padding-bottom: 1%">
+            <div class="col-md-6">
+                <a href="#" class="btn btn-default">#{msg['label.botao.topo']}</a>
+            </div>
+
+            <div class="col-md-6 text-right">
+                <h:commandLink action="#{importaSiagasMB.cancelar()}"
+                    value="#{msg['label.botao.voltar']}" styleClass="btn btn-default">
+                </h:commandLink>
+            </div>
+        </div>
+
+    </b:form>
+
+</ui:define>
+
+<ui:define name="body-include">
+    <b:ajaxStatus/>
+</ui:define>
+
+</ui:composition>

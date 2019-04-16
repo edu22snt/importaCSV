@@ -1,0 +1,102 @@
+<div class="${baseClass}">
+    <style>
+        .${baseClass} {
+            position: absolute;
+            top: 20px;
+        }
+        #div_pesq p
+        {
+            margin: 0;
+        }
+
+        #div_pesq label
+        {
+            font-size: 10px;
+            display: block;
+            font-weight: bold;
+            margin: 2px 0 0 0;
+        }
+
+        #div_pesq .select{
+            width: 195px;
+        }
+        #div_pesq select, #div_pesq input
+        {
+            font-size: 10px;
+            margin: 0;
+            color: black;
+            /*padding: 5px;*/
+        }
+
+        .pequena
+        {
+            height: 0px;
+        }
+
+        .esquerda
+        {
+            /*float: left;
+            margin-right: 20px;*/
+        }
+
+        /*.${baseClass} .window{
+            top: 20px;
+            left: 80px;
+        }*/
+
+    </style>
+
+    <div class="window" data-dojo-type="windowFloating"
+         data-dojo-props="title : 'Pesquisar poços'">
+
+        <div id="div_pesq">
+
+                <p class="esquerda">
+                    <label for="estado">Estado</label>
+                    <select class="select" data-dojo-type="dijit/form/FilteringSelect" id="estado" name="estado" data-dojo-attach-point="state" data-dojo-attach-event="onChange: onFilterCity" data-dojo-props=" value: '', placeHolder: '--- Selecione ---'"></select>
+                </p>
+
+                <p class="esquerda">
+                    <label for="estado">Munícipio</label>
+                    <select class="select" data-dojo-type="dijit/form/FilteringSelect" id="municipio" name="municipio"  data-dojo-attach-point="city"  data-dojo-props=" value: '', placeHolder: '--- Selecione ---'"></select>
+                </p>
+
+                <p class="esquerda">
+                    <label for="provincia">Província / Subprovíncia Hidrogeológica</label>
+                    <select class="select" data-dojo-type="dijit/form/FilteringSelect" id="provincia" name="provincia" data-dojo-attach-point="province"  data-dojo-props=" value: '', placeHolder: '--- Selecione ---'"></select>
+                </p>
+
+                <p class="esquerda">
+                    <label for="aquifero">Aquífero</label>
+                    <select class="select" data-dojo-type="dijit/form/FilteringSelect" id="aquifero" name="aquifero" data-dojo-attach-point="aquifer"  data-dojo-props=" value: '', placeHolder: '--- Selecione ---'"></select>
+                </p>
+
+                <p  class="esquerda">
+                    <label for="hidrografica1">Região Hidrográfica (N1)</label>
+                    <select class="select" data-dojo-type="dijit/form/FilteringSelect" id="hidrografica1" name="hidrografica1" data-dojo-attach-point="regionRiverSystem" data-dojo-attach-event="onChange: onFilterUnitRiverSystem"  data-dojo-props=" value: '', placeHolder: '--- Selecione ---'"></select>
+                </p>
+
+                <p class="esquerda">
+                    <label for="hidrografica2">Unidade Hidrográfica (N2)</label>
+                    <select class="select" data-dojo-type="dijit/form/FilteringSelect" id="hidrografica2" name="hidrografica2" data-dojo-attach-point="unitRiverSystem" data-dojo-attach-event="onChange: onFilterLocalManagement"  data-dojo-props=" value: '', placeHolder: '--- Selecione ---'"></select>
+                </p>
+
+                <p class="esquerda">
+                    <label for="gestao_local">Unidade de Gestão Local (N3)</label>
+                    <select class="select" data-dojo-type="dijit/form/FilteringSelect" id="gestao_local" name="gestao_local" data-dojo-attach-point="localManagement"  data-dojo-props=" value: '', placeHolder: '--- Selecione ---'"></select>
+                </p>
+
+                <p class="esquerda">
+                    <label for="gestao_estadual">Unidade de Gestão Estadual</label>
+                    <select class="select" data-dojo-type="dijit/form/FilteringSelect" id="gestao_estadual" name="gestao_estadual" data-dojo-attach-point="stateManagement"  data-dojo-props=" value: '', placeHolder: '--- Selecione ---'"></select>
+                </p>
+
+                <p  class="esquerda">
+                    <label for="ottobacia">Ottobacia</label>
+                    <input type="text" data-dojo-type="dijit/form/TextBox" id="ottobacia" name="ottobacia" data-dojo-attach-point="ottobacia" />
+                </p>
+        </div>
+
+    </div>
+
+</div>

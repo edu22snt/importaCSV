@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core" 
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:b="http://www.ctis.com.br/bootstrapfaces"
+    template="/WEB-INF/templates/template_importasiagas.xhtml">
+
+<ui:define name="conteudo">
+
+        <div style="padding-top: 1%; padding-bottom: 1%">
+        </div>
+
+    <b:form id="alterarSenha" formLayout="horizontal">
+
+        <b:fieldset legend="#{sis['sistema.alterarsenha.titulo']}">
+
+            <p>#{sis['sistema.alterarsenha.instrucao']}</p>
+
+            <b:inputSecret id="senhaAtual" 
+                value="#{alterarSenhaMB.senha}" 
+                label="#{sis['sistema.label.senhaatual']}"
+                formLayout="horizontal" labelSize="2" inputSize="3"
+                required="true"/> 
+
+            <b:inputSecret id="novaSenha" 
+                value="#{alterarSenhaMB.novaSenha}" 
+                label="#{sis['sistema.label.novasenha']}"
+                formLayout="horizontal" labelSize="2" inputSize="3"/>
+
+            <b:inputSecret id="confirmaSenha" 
+                value="#{alterarSenhaMB.confirmaSenha}" 
+                label="#{sis['sistema.label.confirmesenha']}"
+                formLayout="horizontal" labelSize="2" inputSize="3"/>
+
+        </b:fieldset>
+
+        <div class="row form-actions">
+            <div class="col-md-12">
+
+                <h:commandButton action="/restrito/home.jsf" 
+                    value="#{msg['label.botao.voltar']}" 
+                    immediate="true" styleClass="btn btn-default"/>
+
+                <h:commandButton action="#{alterarSenhaMB.alterarSenha()}" 
+                    value="#{msg['label.botao.confirmar']}" 
+                    styleClass="btn btn-primary"/>
+
+            </div>
+        </div>
+
+    </b:form>
+</ui:define>
+</ui:composition>

@@ -1,0 +1,97 @@
+<div class="${baseClass}">
+    <style type="text/css">
+        .${baseClass} {
+            width: 500px;
+            position: absolute;
+            bottom: 50px;
+            left: 20px;
+            z-index: 503;
+        }
+        .${baseClass} .${containerCoordinate} {
+            max-height: 180px;
+            background: #fff;
+            color: #444;
+            padding: 0 5px;
+            display: block;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0px 0px 15px #777;
+            transition : 0.5s;
+            position: absolute;
+            bottom: -32px;
+            z-index: 204;
+            margin-left: 40px;
+        }
+        .${baseClass} .${containerCoordinate}:hover{
+            background-color: #fff;
+            transition : 0.5s;
+        }
+        .${baseClass} .${containerCoordinate} #${coordinateOptions} {
+            padding: 0 10px;
+        }
+
+        .${baseClass} .${btnOpen} {
+            width: 28px;
+            height: 28px;
+            position: absolute;
+            top: 0;
+            left: 0px;
+            background-color: #fff;
+            color: #777;
+            border-radius: 6px;
+            border: 2px solid #777;
+            cursor: pointer;
+            font-size: 19px;
+            z-index: 101;
+            text-align: center;
+        }
+        .${baseClass} .${btnOpen}:hover {
+            /*background-position: 0px -28px !important;*/
+            color: #333;
+        }
+        #${coordinateOptions} p.esquerda {
+            margin-bottom: 0;
+        }
+        #${coordinateOptions} p.esquerda span.label {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            display: block;
+            margin-bottom: 4px;
+        }
+        #${coordinateOptions} p.esquerda .select {
+            width: 200px;
+        }
+        .fa-thumb-tack {
+            height: 28px;
+            line-height: 28px;
+        }
+        .${baseClass} .legendCoordinate {
+            position: absolute;
+            bottom: -28px;
+            width: auto;
+            font-weight: bold;
+            text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+            z-index: 203;
+            margin-left: 40px;
+        }
+
+    </style>
+    <div data-dojo-attach-point="btnOpen" class="${btnOpen}"><i class="fa fa-thumb-tack fa-fw"></i></div>
+    <div data-dojo-attach-point="containerCoordinate" class="${containerCoordinate}">
+        <div data-dojo-attach-point="coordinateOptions" id="${coordinateOptions}">
+            <p class="esquerda">
+                <span class="label">Informe o DATUM</span>
+                <div class="select" data-dojo-type="dijit/form/Select" id="datum" data-dojo-attach-point="selectDatum"></div>
+            </p>
+            <p class="esquerda">
+                <span class="label">Informe a projeção</span>
+                <div class="select" data-dojo-type="dijit/form/Select" id="projection" data-dojo-attach-point="selectProjection"></div>
+            </p>
+            <p class="esquerda">
+                <span class="label">Formato de entrada</span>
+                <div class="select" data-dojo-type="dijit/form/Select" id="format" data-dojo-attach-point="selectFormat"></div>
+            </p>
+        </div>
+    </div>
+    <div data-dojo-attach-point="legendCoordinate" class="legendCoordinate"></div>
+</div>

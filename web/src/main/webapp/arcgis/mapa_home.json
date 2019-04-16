@@ -1,0 +1,91 @@
+{
+    /**
+     * Mapa base, valores possiveis:
+     *  streets, satellite, hybrid, topo, gray, oceans, national-geographic, osm
+     */
+    "baseMap" : "streets",
+
+    // Extent do Brasil
+    "initialExtent" :
+    {
+        "xmin": -8373449.9041,
+        "ymin": -3725181.5887,
+        "xmax": -3530399.7919,
+        "ymax": 755862.7575,
+        "spatialReference" : 102100
+    },
+
+    // Widgets da aplicacao
+    "widgets" : [
+        { 
+            "name" : "toc-tree-widget/main",
+            "config" :
+            {
+                "open" : false,
+                "urlServices" : [
+                    {
+                        "title" : "Interferências",
+                        "type" : "DynamicLayer",
+                        "url" : "http://10.8.10.63:6080/arcgis/rest/services/SRE/CNARH40/MapServer",
+                        "legendsEnabled" : false,
+                        "visibleLayers" : [0]
+                    },
+                    {
+                        "title" : "Estado",
+                        "type" : "DynamicLayer",
+                        "url" : "http://www.snirh.gov.br/arcgis/rest/services/SIP/Estado/MapServer",
+                        "legendsEnabled" : false
+                    },
+                    {
+                        "title" : "Município",
+                        "type" : "DynamicLayer",
+                        "url" : "http://www.snirh.gov.br/arcgis/rest/services/SIP/Municipio/MapServer",
+                        "legendsEnabled" : false
+                    }
+                ]
+            }
+        },
+        {
+            "name"   : "change-basemap/main",
+            "config" :
+            {
+                /**
+                 * Mapa base, valores possíveis:
+                 * streets, satellite, hybrid, topo, gray, oceans, national-geographic, osm
+                 *
+                 * Ou uma URL customizada
+                 */
+                "defaultBaseMap" : "http://services.arcgisonline.com/ArcGIS/rest/services/USA_Topo_Maps/MapServer",
+                "open" : false,
+                "showArcGISBasemaps" : true,
+                "showCustomMap" : true,
+                "baseMaps" : [
+                    {
+                        "url" : "http://10.8.10.63:6080/arcgis/rest/services/SRE/CNARH40/MapServer",
+                        "thumbnailUrl" : "http://www.arcgis.com/sharing/rest/content/items/99cd5fbd98934028802b4f797c4b1732/info/thumbnail/usa_topo.jpg",
+                        "title" : "USA Topographic Maps"
+                    },
+                    {
+                        "url" : "http://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer",
+                        "thumbnailUrl" : "http://www.arcgis.com/sharing/rest/content/items/8b3d38c0819547faa83f7b7aca80bd76/info/thumbnail/light_canvas.jpg",
+                        "title" : "Light Gray Canvas Map"
+                    }
+                ]
+            }
+        }
+    ],
+    "plugins" : [
+        {
+            "name" : "map-click/main",
+            "active" : true
+        },
+        {
+            "name" : "mapClickIdentify/MapClickIdentify",
+            "active" : true
+        },
+        {
+            "name" : "geometryQuery/GeometryQuery",
+            "active" : true
+        }
+    ]
+}

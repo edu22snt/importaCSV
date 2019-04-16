@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:h="http://java.sun.com/jsf/html" 
+    xmlns:f="http://java.sun.com/jsf/core" 
+    xmlns:ui="http://java.sun.com/jsf/facelets" 
+    xmlns:b="http://www.ctis.com.br/bootstrapfaces"
+    template="/layouts/template_master.xhtml">
+
+<ui:define name="master-body">
+
+    <div class="row m-n">
+        <div class="col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+
+            <header class="text-center">
+                <h1 class="h text-white animated fadeInDownBig">
+                    #{sis['sistema.errorpage.erro']}
+                </h1>
+                <h4 class="m-b padder-h">
+                    #{sis['sistema.errorpage.instrucao']}
+                </h4>
+            </header>
+
+<!--             <div class="list-group bg-white"> -->
+<!--                 <a href="painel.html" class="list-group-item">  -->
+<!--                     <i class="fa fa-chevron-right icon-muted"></i>  -->
+<!--                     <i class="fa fa-fw fa-home icon-muted"></i>  -->
+<!--                     Pá -->
+<!--                 </a>  -->
+<!--                 <a href="#" class="list-group-item">  -->
+<!--                     <i class="fa fa-chevron-right icon-muted"></i>  -->
+<!--                     <i class="fa fa-fw fa-question icon-muted"></i>  -->
+<!--                     Envie-nos uma Opnião -->
+<!--                 </a>  -->
+<!--                 <a href="#" class="list-group-item">  -->
+<!--                     <i class="fa fa-chevron-right icon-muted"></i>  -->
+<!--                     <span class="badge bg-info lt">(00) 0000-0000</span>  -->
+<!--                     <i class="fa fa-fw fa-phone icon-muted"></i>  -->
+<!--                     Fale Conosco -->
+<!--                 </a> -->
+<!--             </div> -->
+
+            <div class="tabbable">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab1" data-toggle="tab">#{sis['sistema.errorpage.causa']}</a></li>
+                    <li><a href="#tab2" data-toggle="tab">#{sis['sistema.errorpage.detalhes']}</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab1">
+                      <p><strong>#{sis['sistema.errorpage.erro']}:</strong> #{controleViewMB.causaErro}</p>
+                      <p><strong>#{sis['sistema.errorpage.pagina']}:</strong> #{controleViewMB.currentViewId}</p>
+                    </div>
+                    <div class="tab-pane" id="tab2">
+                      <p><h:outputText value="#{controleViewMB.stackErro}" escape="false"/></p>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="text-center">
+                <p>#{sis['sistema.nome']} - v#{sis['sistema.versao']}</p>
+            </footer>
+        </div>
+    </div>
+
+</ui:define>
+</ui:composition>

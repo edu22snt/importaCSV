@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:h="http://java.sun.com/jsf/html" 
+    xmlns:f="http://java.sun.com/jsf/core" 
+    xmlns:ui="http://java.sun.com/jsf/facelets" 
+    xmlns:b="http://www.ana.gov.br/jsf2-componentes"
+    template="/layouts/template_logo.xhtml">
+
+    <ui:define name="conteudo">
+
+        <b:fieldset legend="Implementation Versions">
+
+            <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th width="34%"  class="text-center">JAVA VERSION</th>
+                    <th width="33%" class="text-center">JSF <br/> VERSION</th>
+                    <th width="33%"  class="text-center">SERVLET VERSION</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-center">#{acessibilidadeMB.JAVAVersion}</td>
+                    <td class="text-center">#{acessibilidadeMB.JSFVersion}</td>
+                    <td class="text-center">#{acessibilidadeMB.servletVersion}</td>
+                </tr>
+            </tbody>
+            </table>
+
+            <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th width="33%" class="text-center">JSP VERSION</th>
+                    <th width="34%" class="text-center">EL VERSION</th>
+                    <th width="33%"  class="text-center">JSTL VERSION</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-center">#{acessibilidadeMB.JSPVersion}</td>
+                    <td class="text-center">#{acessibilidadeMB.ELVersion}</td>
+                    <td class="text-center">#{acessibilidadeMB.JSTLVersion}</td>
+                </tr>
+            </tbody>
+            </table>
+
+        </b:fieldset>
+
+    </ui:define>
+</ui:composition>

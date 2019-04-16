@@ -1,0 +1,385 @@
+{
+    /**
+     * Mapa base, valores possiveis:
+     *  streets, satellite, hybrid, topo, gray, oceans, national-geographic, osm
+     */
+    "baseMap" : "streets",
+
+    // Extent do Brasil
+    "initialExtent" :
+    {
+        "xmin": -8373449.9041,
+        "ymin": -3725181.5887,
+        "xmax": -3530399.7919,
+        "ymax": 755862.7575,
+        "spatialReference" : 102100
+    },
+
+    // Widgets da aplicacao
+    "widgets" : [
+        { //Inserco e edicao de pocos
+            "name" : "well-registry-manager/main",
+            "config" : {
+                "position" : "left",
+                "geometryServiceURL" : "http://www.snirh.gov.br/arcgis/rest/services/Utilities/Geometry/GeometryServer",
+                "stateService": {
+                    "url" : "http://www.snirh.gov.br/arcgis/rest/services/SIP/Estado/MapServer/0",
+                    "id" : "UFD_CD",
+                    "name" : "UFD_NM"
+                },
+                "countyService": {
+                    "url" : "http://www.snirh.gov.br/arcgis/rest/services/SIP/Municipio/MapServer/0",
+                    "id" : "MUN_CD",
+                    "name" : "MUN_NM"
+                },
+                "provinceService" : {
+                    "url" : "http://www.snirh.gov.br/arcgis/rest/services/SIP/Provincia_Geologica/MapServer/0",
+                    "id" : "PGE_CD",
+                    "name" : "PGE_NM_PROVINCIA"
+                },
+                "stateManagementUnitService": {
+                    "url":"http://www.snirh.gov.br/arcgis/rest/services/SIP/Unidade_Gestao_Estadual/MapServer/0",
+                    "id" : "UHE_CD",
+                    "name" : "UHE_NM"
+                },
+                "hydroN1Service": {
+                    "url": "http://www.snirh.gov.br/arcgis/rest/services/SIP/Regiao_Hidrografica/MapServer/0",
+                    "id" : "RHI_CD",
+                    "name" : "RHI_NM"
+                },
+                "hydroN2Service": {
+                    "url" : "http://www.snirh.gov.br/arcgis/rest/services/SIP/Unidade_Hidrografica/MapServer/0",
+                    "id" : "UHI_CD",
+                    "name" : "UHI_NM"
+                },
+                "localManagementUnitService" : {
+                    "url" : "http://www.snirh.gov.br/arcgis/rest/services/SIP/Unidade_Planejamento_Hidrico/MapServer/0",
+                    "id" : "UPH_CD",
+                    "name" : "UPH_NM"
+                },
+                "aquiferService" : {
+                    "url" : "http://www.snirh.gov.br/arcgis/rest/services/SIP/Aquifero/MapServer/0",
+                    "id" : "SAQ_CD",
+                    "name" : "SAC_AQUIFERO"
+                },
+                "ottobaciaService" : {
+                    "url" : "http://www.snirh.gov.br/arcgis/rest/services/SIP/Ottobacia/MapServer/0",
+                    "id" : "OBA_CD"
+                },
+                "projections" : {
+                    "geographic" : [
+                        {
+                            "label" : "SIRGAS 2000",
+                            "value" : "4674"
+                        },
+                        {
+                            "label" : "WGS 1984",
+                            "value" : "4326"
+                        },
+                        {
+                            "label" : "SAD 1969",
+                            "value" : "5527"
+                        },
+                        {
+                            "label" : "Corrego Alegre",
+                            "value" : "4225"
+                        }
+                    ],
+                    "projected" : [
+                        {
+                            "label" : "SIRGAS 2000 UTM Zona 18S",
+                            "value" : 31978
+                        },
+                        {
+                            "label" : "SIRGAS 2000 UTM Zona 19S",
+                            "value" : 31979
+                        },
+                        {
+                            "label" : "SIRGAS 2000 UTM Zona 20S",
+                            "value" : 31980
+                        },
+                        {
+                            "label" : "SIRGAS 2000 UTM Zona 21S",
+                            "value" : 31981
+                        },
+                        {
+                            "label" : "SIRGAS 2000 UTM Zona 22S",
+                            "value" : 31982
+                        },
+                        {
+                            "label" : "SIRGAS 2000 UTM Zona 23S",
+                            "value" : 31983
+                        },
+                        {
+                            "label" : "SIRGAS 2000 UTM Zona 24S",
+                            "value" : 31984
+                        },
+                        {
+                            "label" : "SIRGAS 2000 UTM Zona 25S",
+                            "value" : 31985
+                        },
+                        // SAD 69 -----------------------------------------------------------------------------------
+                        {
+                            "label" : "SAD 1969 UTM Zona 19N",
+                            "value" : 29169
+                        },
+                        {
+                            "label" : "SAD 1969 UTM Zona 20N",
+                            "value" : 29170
+                        },
+                        {
+                            "label" : "SAD 1969 UTM Zona 21N",
+                            "value" : 29171
+                        },
+                        {
+                            "label" : "SAD 1969 UTM Zona 22N",
+                            "value" : 29172
+                        },
+                        {
+                            "label" : "SAD 1969 UTM Zona 18S",
+                            "value" : 29188
+                        },
+                        {
+                            "label" : "SAD 1969 UTM Zona 19S",
+                            "value" : 29189
+                        },
+                        {
+                            "label" : "SAD 1969 UTM Zona 20S",
+                            "value" : 29190
+                        },
+                        {
+                            "label" : "SAD 1969 UTM Zona 21S",
+                            "value" : 29191
+                        },
+                        {
+                            "label" : "SAD 1969 UTM Zona 22S",
+                            "value" : 29192
+                        },
+                        {
+                            "label" : "SAD 1969 UTM Zona 23S",
+                            "value" : 29193
+                        },
+                        {
+                            "label" : "SAD 1969 UTM Zona 24S",
+                            "value" : 29194
+                        },
+                        {
+                            "label" : "SAD 1969 UTM Zona 25S",
+                            "value" : 29195
+                        },
+                        // Corrego Alegre ----------------------------------------------------------------------------
+                        {
+                            "label" : "Corrego Alegre UTM Zona 21S",
+                            "value" : 22521
+                        },
+                        {
+                            "label" : "Corrego Alegre UTM Zona 22S",
+                            "value" : 22522
+                        },
+                        {
+                            "label" : "Corrego Alegre UTM Zona 23S",
+                            "value" : 22523
+                        },
+                        {
+                            "label" : "Corrego Alegre UTM Zona 24S",
+                            "value" : 22524
+                        },
+                        {
+                            "label" : "Corrego Alegre UTM Zona 25S",
+                            "value" : 22525
+                        }
+                    ]
+                },
+                "defaultValuesForm" : {
+                    /**
+                     * Habilita ou desabilita preencher o formulÃ¡rio quando clicar no mapa
+                     */
+                    "showCoordinatesOnClick" : true,
+                    /**
+                     * Radio button com as coordenadas
+                     * Valores permitidos
+                     * degree / dms
+                     */
+                    "coordinates" : "dms",
+                    "degreeLat" : "", // Valor do input da latitude
+                    "degreeLong" : "", // Valor do input da longitude
+
+                    "dmsLatDegree" : "", // Valor dos graus da latitude
+                    "dmsLatMinute" : "", // Valor dos minutos da latitude
+                    "dmsLatSecond" : "", // Valor dos segundos da latitude
+                    "dmsLatCardinalPoint" : "", // Valor do ponto cardinal da latitude
+
+                    "dmsLongDegree" : "", // Valor dos graus da longitude
+                    "dmsLongMinute" : "", // Valor dos minutos da longitude
+                    "dmsLongSecond" : "", // Valor dos segundos da longitude
+                    "dmsLongCardinalPoint" : "", // Valor do ponto cardinal da longitude
+                    /**
+                     * Radio button com o sistema de coordenadas
+                     * Valores permitidos
+                     * geographic / projected
+                     */
+                    "coordinateSystem" : "geographic",
+                    "projectionSystem" : "" // Valor da projeÃ§Ã£o do sistema de coordenadas
+
+                }
+            }
+        },
+        { // TOC - Tabela de contexdo
+            "name" : "toc-tree-widget/main",
+            "config" :
+            {
+                "open" : false,
+                "urlServices" : [
+                    {
+                        "title" : "Estado",
+                        "type" : "DynamicLayer",
+                        "url" : "http://www.snirh.gov.br/arcgis/rest/services/SIP/Estado/MapServer",
+                        "legendsEnabled" : false
+                    },
+                    {
+                        "title" : "MunicÃ­pio",
+                        "type" : "DynamicLayer",
+                        "url" : "http://www.snirh.gov.br/arcgis/rest/services/SIP/Municipio/MapServer",
+                        "legendsEnabled" : false
+                    },
+                    {
+                        "title" : "RegiÃ£o HidrogrÃ¡fica (N1)",
+                        "type" : "DynamicLayer",
+                        "url" : "http://www.snirh.gov.br/arcgis/rest/services/SIP/Regiao_Hidrografica/MapServer",
+                        "legendsEnabled" : false
+                    },
+                    {
+                        "title" : "RegiÃ£o HidrogrÃ¡fica (N2)",
+                        "type" : "DynamicLayer",
+                        "url" : "http://www.snirh.gov.br/arcgis/rest/services/SIP/Unidade_Hidrografica/MapServer",
+                        "legendsEnabled" : false
+                    },
+                    {
+                        "title" : "Unidade de GestÃ£o Estadual",
+                        "type" : "DynamicLayer",
+                        "url" : "http://www.snirh.gov.br/arcgis/rest/services/SIP/Unidade_Gestao_Estadual/MapServer",
+                        "legendsEnabled" : false
+                    }
+                ]
+            }
+        },
+        {
+            "name"   : "change-basemap/main",
+            "config" :
+            {
+                /**
+                 * Mapa base, valores possÃ­veis:
+                 * streets, satellite, hybrid, topo, gray, oceans, national-geographic, osm
+                 *
+                 * Ou uma URL customizada
+                 */
+                "defaultBaseMap" : "http://services.arcgisonline.com/ArcGIS/rest/services/USA_Topo_Maps/MapServer",
+                "open" : false,
+                "showArcGISBasemaps" : true,
+                "showCustomMap" : true,
+                "baseMaps" : [
+                    {
+                        "url" : "http://services.arcgisonline.com/ArcGIS/rest/services/USA_Topo_Maps/MapServer",
+                        "thumbnailUrl" : "http://www.arcgis.com/sharing/rest/content/items/99cd5fbd98934028802b4f797c4b1732/info/thumbnail/usa_topo.jpg",
+                        "title" : "USA Topographic Maps"
+                    },
+                    {
+                        "url" : "http://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer",
+                        "thumbnailUrl" : "http://www.arcgis.com/sharing/rest/content/items/8b3d38c0819547faa83f7b7aca80bd76/info/thumbnail/light_canvas.jpg",
+                        "title" : "Light Gray Canvas Map"
+                    }
+                ]
+            }
+        },
+        {
+            "name" : "coordinate/main",
+            "config" :
+            {
+                "open" : false,
+                "datum" : [
+                    {
+                        "label" : "WGS 84",
+                        "value" : "4326"
+                    },
+                    {
+                        "label" : "SAD69 apÃ³s 94",
+                        "value" : "4618"
+                    },
+                    {
+                        "label" : "SAD69 antes 94",
+                        "value" : "4291"
+                    },
+                    {
+                        "label" : "SICAD",
+                        "value" : "6857"
+                    },
+                    {
+                        "label" : "Corrego Alegre",
+                        "value" : "4225"
+                    },
+                    {
+                        "label" : "Astro ChuÃ¡",
+                        "value" : "4224"
+                    },
+                    {
+                        "label" : "SIRGAS 2000",
+                        "value" : "4674",
+                        "selected" : true
+                    }
+                ],
+                "projection" : [
+                    {
+                        "label" : "Lat/Lon",
+                        "value" : "latLong",
+                        "selected" : true
+                    },
+                    {
+                        "label" : "UTM",
+                        "value" : "utm"
+                    }
+                ],
+                "format" : [
+                    {
+                        "label" : "Grau Decimal",
+                        "value" : "decimalDegrees",
+                        "selected" : true
+                    },
+                    {
+                        "label" : "DMS",
+                        "value" : "dms"
+                    }
+                ],
+                "definition" : {
+                    "4326" : "+a=6378137.0 +b=6356752.31424518 +ellps=WGS84 +datum=WGS84 +units=degrees",
+                    "4618" : "+a=6378160 +rf=298.25  +towgs84=-67.35,3.88,-38.22",
+                    "4291" : "+a=6378160 +rf=298.25 +towgs84=-66.87,4.37,-38.52",
+                    "6857" : "+a=6378388 +rf=297.00 +towgs84=-144.35,242.88,-33.22",
+                    "4225" : "+a=6378388 +rf=297.00 +towgs84=-205.57,168.77,-4.12",
+                    "4224" : "+a=6378388 +rf=297.00 +towgs84=-143.87,243.37,33.52",
+                    "4674" : "+ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +no_defs"
+                }
+            }
+        }
+    ],
+    "plugins" : [
+        {
+            "name" : "map-click/main",
+            "active" : true
+        },
+
+        {
+            "name" : "mapClickIdentify/MapClickIdentify",
+            "active" : true
+        },
+
+        {
+            "name" : "geometryQuery/GeometryQuery",
+            "active" : true
+        },
+
+        {
+            "name" : "validatePoint/main",
+            "active" : true
+        }
+    ]
+}

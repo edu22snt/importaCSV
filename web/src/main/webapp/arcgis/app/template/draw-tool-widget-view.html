@@ -1,0 +1,145 @@
+<div data-dojo-attach-point="drawToolWidget" class="${baseClass}">
+
+    <style type="text/css">
+        .${baseClass}{
+            position: absolute;
+            right: 0;
+            display: block;
+            width: 27px;
+            background: #fff;
+            border: 2px solid #777;
+            border-radius: 10px 0 0 10px;
+            text-align: center;
+            padding: 1px;
+            z-index: 102;
+        }
+
+        .${baseClass} .tool, .${baseClass} .tool-clear{
+            display: block;
+            cursor: pointer;
+            text-align: center;
+            padding: 5px 10px;
+            font-size: 1.7em !important;
+            background-color: #fff;
+            color: #666;
+            border-radius: 0;
+            border: 0;
+        }
+            .${baseClass} .tool:hover, .${baseClass} .tool-clear:hover{
+                color: #000;
+            }
+        /*==Posição Left===*/
+        .${baseClass}.${posLeft} {
+            position: absolute;
+            top: 215px;
+            right: auto;
+            left: 20px;
+            border-radius: 6px;
+        }
+        .${baseClass}.${posLeft} .childrensExtent{
+            left: 27px;
+            border-radius: 0 5px 5px 0;
+            border: 2px solid #666;
+            border-left: 0;
+        }
+        /*==============*/
+
+        /*==Posição Right===*/
+        .${baseClass}.${posRight} {
+            position: absolute;
+            top: 93px;
+            left: auto;
+            right: 20px;
+            border-radius: 6px;
+        }
+        /*==============*/
+
+        .${baseClass} .childrensExtent{
+            top: -2px;
+            width: 92px;
+            position: absolute;
+            display: none;
+            background: #fff;
+            opacity: 0;
+            transition: 0.5s;
+        }
+        .${baseClass} .childrensExtent .tool {
+            float: left;
+            border: 0;
+            margin: 0 3px;
+            width: 24px; padding-left: 0px; padding-right: 0px;
+            height: 20px;
+        }
+
+        .${baseClass} .buttonExtent{
+            position: relative;
+        }
+        .${baseClass} .buttonExtent:hover .childrensExtent{
+            display: block;
+            opacity: 1;
+            transition: 0.5s;
+        }
+
+        /*=====icones=====*/
+        .fa-quad{
+            background-image: url("${baseUrl}images/icones/quadrado.png");
+            background-repeat: repeat;
+        }
+        .fa-circulo{
+            background-image: url("${baseUrl}images/icones/circulo.png");
+            background-repeat: repeat;
+        }
+        .fa-linha{
+            background-image: url("${baseUrl}images/icones/linha.png");
+            background-repeat: repeat;
+        }
+        .fa-poligono{
+            background-image: url("${baseUrl}images/icones/poligono.png")  ;
+        }
+        .fa-linha, .fa-poligono, .fa-circulo, .fa-quad{
+            display: block;
+            cursor: pointer;
+            border-radius: 0px !important;
+            border: 0px !important;
+            background-position: 0px -28px !important;
+            opacity: 0.8;
+        }
+        .fa-linha:hover, .fa-poligono:hover, .fa-circulo:hover, .fa-quad:hover{
+            opacity: 1;
+        }
+    </style>
+
+    <div id="Point"
+         data-dojo-attach-event="onclick:_clickEvent_drawTool, onmouseover:_mouseOver_drawTool, onmouseout:_mouseOut_drawTool"
+         name="Ponto" class="fa fa-dot-circle-o tool" style="padding: 5px 0 0 5px;">&nbsp;</div>
+
+    <div id="Line"
+         data-dojo-attach-event="onclick:_clickEvent_drawTool, onmouseover:_mouseOver_drawTool, onmouseout:_mouseOut_drawTool"
+         name="Linha" class="fa fa-linha tool">&nbsp;</div>
+
+    <div id="buttonExtent" class="buttonExtent">
+
+        <div id="Extent"
+             data-dojo-attach-event="onclick:_clickEvent_drawTool, onmouseover:_mouseOver_drawTool, onmouseout:_mouseOut_drawTool"
+             name="Quadrado" class="fa fa-quad relative tool" style="z-index: 100;">&nbsp;</div>
+
+        <div id="childrensExtent" class="childrensExtent">
+
+            <div id="Ellipse"
+                 data-dojo-attach-event="onclick:_clickEvent_drawTool, onmouseover:_mouseOver_drawTool, onmouseout:_mouseOut_drawTool"
+                 name="Círculo" class="fa fa-circulo tool">&nbsp;</div>
+
+            <div id="Polygon"
+                 data-dojo-attach-event="onclick:_clickEvent_drawTool, onmouseover:_mouseOver_drawTool, onmouseout:_mouseOut_drawTool"
+                 name="Polígono" class="fa fa-poligono tool">&nbsp;</div>
+
+            <div id="FREEHAND_POLYGON"
+                 data-dojo-attach-event="onclick:_clickEvent_drawTool, onmouseover:_mouseOver_drawTool, onmouseout:_mouseOut_drawTool"
+                 name="Desenho livre de Polígono" class="fa fa-pencil tool" style="font-size: 1.35em; padding: 5px 0; width: 20px">&nbsp;</div>
+        </div>
+    </div>
+
+    <div id="Clear"
+         name="Limpar desenhos"
+         data-dojo-attach-event="onclick: clearGraphics" class="fa fa-undo tool-clear" style="padding: 5px 0; border-bottom: 0;"></div>
+</div>
